@@ -1,10 +1,10 @@
 import '@fontsource/roboto';
 import {AppBar, Toolbar, Typography, Button, makeStyles} from '@material-ui/core/';
 import { ThemeProvider } from '@material-ui/styles';
-import tema from './tema';
+import Tema from './Tema';
 
 const useStyle = makeStyles({
-    espacioAppBar: tema.mixins.toolbar,
+    espacioAppBar: Tema.mixins.toolbar,
     logoBrand: {
         flexGrow: 1
     }
@@ -13,7 +13,7 @@ const useStyle = makeStyles({
 function NavBar(){
     const classes = useStyle(); ///este es un hook
     return (
-        <ThemeProvider theme={tema}>
+        <ThemeProvider theme={Tema}>
             <AppBar position="fixed">
                 <Toolbar>
                     <Typography className={classes.logoBrand} variant="h6">

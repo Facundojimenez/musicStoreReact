@@ -1,0 +1,29 @@
+[
+    {
+        "id": 1,
+        "marca": "Orange",
+        "modelo": "Dual Terror",
+        "categoria": "Amplificador",
+        "calificacion": 4.5,
+        "precio": 100000,
+        "urlImagen": "../media/dual-terror.jpg"
+    },
+    {
+        "id": 2,
+        "marca": "Suhr",
+        "modelo": "Stratocaster",
+        "categoria": "Guitarra eléctrica",
+        "calificacion": 5,
+        "precio": 250000,
+        "urlImagen": "../media/strato.jpg"
+    },
+    {
+        "id": 3,
+        "marca": "Gibson",
+        "modelo": "Les paul R9",
+        "categoria": "Guitarra eléctrica",
+        "calificacion": 4.5,
+        "precio": 320000,
+        "urlImagen": "../media/lespaul.jpg"
+    }
+]

@@ -20,10 +20,14 @@ const useStyles = makeStyles({
     cardFoto: {
         minHeight: "300px",
         minWidth: "200px"
+    },
+    fotuli: {
+        height: "1000px",
+        backgroundColor: "red"
     }
 })
 
-function CardProducto(){
+function CardProducto(props){
     const classes = useStyles();
     return(
         <Card className={classes.card}>
@@ -31,17 +35,17 @@ function CardProducto(){
             <CardContent className={classes.cardContent}>
                 <Box className={classes.cardBoxContent} py={1}>
                     <Typography gutterBottom variant="h5" component="h5">
-                        Orange Dual Terror
+                        {props.marca}
                     </Typography>
                     <Typography variant="body2" color="textSecondary" component="h6">
-                        AMPLIFICADOR DE GUITARRA
+                        {props.categoria}
                     </Typography>
-                    <Rating name="half-rating-read" defaultValue={4.5} precision={0.5} readOnly />
+                    <Rating name="half-rating-read" defaultValue={props.calificacion} precision={0.5} readOnly />
                 </Box>
                 <Divider variant="middle" />
                 <Box display="flex" flexDirection="column" alignItems="center" py={1}>
                     <Typography variant="h5" component="h6">
-                        $100.000
+                        ${props.precio}
                     </Typography>
                 </Box>
             </CardContent>
