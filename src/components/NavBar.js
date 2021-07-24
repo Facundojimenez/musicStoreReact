@@ -3,9 +3,6 @@ import {AppBar, Toolbar, Typography, Button, makeStyles} from '@material-ui/core
 import { ThemeProvider } from '@material-ui/styles';
 import tema from './tema';
 
-console.log(tema);
-console.log(tema.mixins.toolbar);
-
 const useStyle = makeStyles({
     espacioAppBar: tema.mixins.toolbar,
     logoBrand: {
