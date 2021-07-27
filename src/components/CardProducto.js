@@ -28,8 +28,8 @@ function CardProducto(props){
             <CardMedia className={classes.cardFoto} component="img" image={props.urlImagen} title="Amplificador"/>
             <CardContent className={classes.cardContent}>
                 <Box className={classes.cardBoxContent} py={1}>
-                    <Typography gutterBottom variant="h5" component="h5">
-                        {props.marca}
+                    <Typography variant="h5" component="h5">
+                        {props.marca} {props.modelo}
                     </Typography>
                     <Typography variant="body2" color="textSecondary" component="h6">
                         {props.categoria}

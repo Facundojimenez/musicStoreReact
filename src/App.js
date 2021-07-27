@@ -1,7 +1,8 @@
 import NavBar from './components/NavBar.js';
 import GridProductos from './components/GridProductos.js';
 import Footer from './components/Footer.js'
-import { Container, makeStyles } from '@material-ui/core';
+import { Container, Box, makeStyles, Typography } from '@material-ui/core';
+import BannerSlider from './components/BannerSlider.js';
 
 const useStyles = makeStyles({
 	body: {
@@ -12,16 +13,19 @@ const useStyles = makeStyles({
 function App() {
 	const classes = useStyles();
   return (
-    <>
-		<NavBar/>
-		<Container className={classes.body}>
-			<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Labore quis nesciunt quas! Dicta earum temporibus quae harum delectus, mollitia nam ipsam perspiciatis corrupti esse sint officiis. Culpa laborum fugiat eaque.</p>  
-			<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Labore quis nesciunt quas! Dicta earum temporibus quae harum delectus, mollitia nam ipsam perspiciatis corrupti esse sint officiis. Culpa laborum fugiat eaque.</p>  
-			<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Labore quis nesciunt quas! Dicta earum temporibus quae harum delectus, mollitia nam ipsam perspiciatis corrupti esse sint officiis. Culpa laborum fugiat eaque.</p>  
-			<GridProductos/>
-		</Container>
-		<Footer/>
-	</>
+		<div className={classes.body} >
+			<NavBar/>
+			<BannerSlider/>
+			<Container>
+				<Box my={5}>
+					<Typography variant="h3" element="h3"color="initial" align="center">
+						Nuestro Catálogo
+					</Typography>
+				</Box>
+				<GridProductos/>
+			</Container>
+			<Footer/>
+		</div>
   );
 }
 

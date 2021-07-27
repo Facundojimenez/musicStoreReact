@@ -1,0 +1,25 @@
+.swiper-container{
+    height: 50vh;
+}
+
+.swiper-wrapper{
+    padding-inline-start: 0;
+}
+
+.container-img-banner{
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    color: #fff
+    /* outline: 1px solid yellow; */
+}
+
+.img-banner{
+    width: 100%;
+    object-fit: contain;
+}

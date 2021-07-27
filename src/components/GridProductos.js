@@ -31,7 +31,7 @@ const arrProductos = [
         urlImagen: require('../media/guitarras/tele.jpg').default
     },
     {
-        id: 3,
+        id: 4,
         marca: "ESP",
         modelo: "Horizon II",
         categoria: "Guitarra eléctrica",
@@ -40,7 +40,7 @@ const arrProductos = [
         urlImagen: require('../media/guitarras/horizon.jpg').default
     },
     {
-        id: 3,
+        id: 5,
         marca: "Fender",
         modelo: "Stratocaster",
         categoria: "Guitarra eléctrica",
@@ -49,39 +49,39 @@ const arrProductos = [
         urlImagen: require('../media/guitarras/strato.jpg').default
     },
     {
-        id: 3,
+        id: 6,
         marca: "Orange",
         modelo: "Dual Terror",
         categoria: "Amplificador",
-        calificacion: 4.5,
-        precio: 100000,
+        calificacion: 4,
+        precio: 120000,
         urlImagen: require('../media/amplificadores/dual-terror.jpg').default
     },
     {
-        id: 3,
+        id: 7,
         marca: "Marshall",
         modelo: "JCM900",
         categoria: "Amplificador",
         calificacion: 4,
-        precio: 100000,
+        precio: 390000,
         urlImagen: require('../media/amplificadores/jcm-900.jpg').default
     },
     {
-        id: 3,
+        id: 8,
         marca: "Vox",
         modelo: "AC30",
         categoria: "Amplificador",
         calificacion: 4.5,
-        precio: 100000,
+        precio: 150000,
         urlImagen: require('../media/amplificadores/ac30.jpg').default
     },
     {
-        id: 3,
+        id: 9,
         marca: "Fender",
         modelo: "Deluxe reverb",
         categoria: "Amplificador",
-        calificacion: 4.5,
-        precio: 100000,
+        calificacion: 5,
+        precio: 300000,
         urlImagen: require('../media/amplificadores/deluxe-reverb.jpg').default
     }
 ]
@@ -96,6 +96,7 @@ function GridProductos(){
                                 <CardProducto   marca={producto.marca}
                                                 modelo={producto.modelo}
                                                 precio={producto.precio}
+                                                categoria={producto.categoria}
                                                 calificacion={producto.calificacion}
                                                 urlImagen={producto.urlImagen}/>
                             </Grid>
