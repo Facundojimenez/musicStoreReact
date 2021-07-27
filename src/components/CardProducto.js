@@ -1,12 +1,9 @@
 import {Card, CardMedia,CardContent, Typography, makeStyles, Button, Box, Divider, CardActions} from '@material-ui/core';
 import {Rating} from '@material-ui/lab';
 import {ShoppingCart} from '@material-ui/icons'
-import imagen from '../media/dual-terror.jpg';
+// import imagen from '../media/dual-terror.jpg';
 
 const useStyles = makeStyles({
-    card: {
-        padding: "0.5rem",
-    },
     cardContent: {
         padding: "0"
     },
@@ -18,12 +15,9 @@ const useStyles = makeStyles({
         minHeight: "100px"
     },
     cardFoto: {
-        minHeight: "300px",
-        minWidth: "200px"
-    },
-    fotuli: {
-        height: "1000px",
-        backgroundColor: "red"
+        height: "300px",
+        minWidth: "200px",
+        objectFit: "contain"
     }
 })
 
@@ -31,7 +25,7 @@ function CardProducto(props){
     const classes = useStyles();
     return(
         <Card className={classes.card}>
-            <CardMedia className={classes.cardFoto} image={imagen} title="Amplificador"/>
+            <CardMedia className={classes.cardFoto} component="img" image={props.urlImagen} title="Amplificador"/>
             <CardContent className={classes.cardContent}>
                 <Box className={classes.cardBoxContent} py={1}>
                     <Typography gutterBottom variant="h5" component="h5">

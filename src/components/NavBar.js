@@ -1,7 +1,7 @@
 import '@fontsource/roboto';
 import {AppBar, Toolbar, Typography, Button, makeStyles} from '@material-ui/core/';
 import { ThemeProvider } from '@material-ui/styles';
-import Tema from './Tema';
+import Tema from './tema';
 
 const useStyle = makeStyles({
     espacioAppBar: Tema.mixins.toolbar,

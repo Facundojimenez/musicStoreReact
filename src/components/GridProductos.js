@@ -1,16 +1,16 @@
 import CardProducto from "./CardProducto";
-import {Grid} from "@material-ui/core"
+import {Grid, Box} from "@material-ui/core"
 
 
 const arrProductos = [
     {
         id: 1,
-        marca: "Orange",
-        modelo: "Dual Terror",
-        categoria: "Amplificador",
-        calificacion: 4.5,
-        precio: 100000,
-        urlImagen: '../media/dual-terror.jpg'
+        marca: "Gibson",
+        modelo: "Les Paul R9",
+        categoria: "Guitarra eléctrica",
+        calificacion: 5,
+        precio: 280000,
+        urlImagen: require('../media/guitarras/lespaul.jpg').default
     },
     {
         id: 2,
@@ -19,7 +19,34 @@ const arrProductos = [
         categoria: "Guitarra Eléctrica",
         calificacion: 5,
         precio: 250000,
-        urlImagen: '../media/strato.jpg'
+        urlImagen: require('../media/guitarras/suhr.jpg').default
+    },
+    {
+        id: 3,
+        marca: "Fender",
+        modelo: "Telecaster",
+        categoria: "Guitarra eléctrica",
+        calificacion: 4.5,
+        precio: 100000,
+        urlImagen: require('../media/guitarras/tele.jpg').default
+    },
+    {
+        id: 3,
+        marca: "ESP",
+        modelo: "Horizon II",
+        categoria: "Guitarra eléctrica",
+        calificacion: 5,
+        precio: 220000,
+        urlImagen: require('../media/guitarras/horizon.jpg').default
+    },
+    {
+        id: 3,
+        marca: "Fender",
+        modelo: "Stratocaster",
+        categoria: "Guitarra eléctrica",
+        calificacion: 4.5,
+        precio: 190000,
+        urlImagen: require('../media/guitarras/strato.jpg').default
     },
     {
         id: 3,
@@ -28,26 +55,54 @@ const arrProductos = [
         categoria: "Amplificador",
         calificacion: 4.5,
         precio: 100000,
-        urlImagen: '../media/dual-terror.jpg'
+        urlImagen: require('../media/amplificadores/dual-terror.jpg').default
+    },
+    {
+        id: 3,
+        marca: "Marshall",
+        modelo: "JCM900",
+        categoria: "Amplificador",
+        calificacion: 4,
+        precio: 100000,
+        urlImagen: require('../media/amplificadores/jcm-900.jpg').default
+    },
+    {
+        id: 3,
+        marca: "Vox",
+        modelo: "AC30",
+        categoria: "Amplificador",
+        calificacion: 4.5,
+        precio: 100000,
+        urlImagen: require('../media/amplificadores/ac30.jpg').default
+    },
+    {
+        id: 3,
+        marca: "Fender",
+        modelo: "Deluxe reverb",
+        categoria: "Amplificador",
+        calificacion: 4.5,
+        precio: 100000,
+        urlImagen: require('../media/amplificadores/deluxe-reverb.jpg').default
     }
 ]
 
 function GridProductos(){
     return (
-        <Grid container spacing={2}>
+        <Box my={2}>
+            <Grid container spacing={2}>
             {
                 arrProductos.map(producto => {
                     return  <Grid item xs={12} sm={6} md={4} lg={3} key={producto.id}>
-                                <h1>marca: {producto.marca}</h1>
                                 <CardProducto   marca={producto.marca}
                                                 modelo={producto.modelo}
                                                 precio={producto.precio}
                                                 calificacion={producto.calificacion}
-                                                urlFoto={producto.urlFoto}/>
+                                                urlImagen={producto.urlImagen}/>
                             </Grid>
                 })
             }
-        </Grid>
+            </Grid>
+        </Box>
     );
 }
 
