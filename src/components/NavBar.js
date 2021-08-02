@@ -2,6 +2,7 @@ import '@fontsource/roboto';
 import {AppBar, Toolbar, Typography, Button, makeStyles} from '@material-ui/core/';
 import { ThemeProvider } from '@material-ui/styles';
 import Tema from './tema';
+import CartWidget from './CartWidget';
 
 const useStyle = makeStyles({
     espacioAppBar: Tema.mixins.toolbar,
@@ -30,6 +31,7 @@ function NavBar(){
                             Contacto
                         </Button>
                     </div>
+                    <CartWidget/>
                 </Toolbar>
             </AppBar>
             <div className={classes.espacioAppBar}></div>
