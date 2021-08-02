@@ -6,6 +6,7 @@ const arrProductos = [
         categoria: "Guitarra eléctrica",
         calificacion: 5,
         precio: 280000,
+        stock: 4,
         urlImagen: require('../media/guitarras/lespaul.jpg').default
     },
     {
@@ -15,6 +16,7 @@ const arrProductos = [
         categoria: "Guitarra Eléctrica",
         calificacion: 5,
         precio: 250000,
+        stock: 2,
         urlImagen: require('../media/guitarras/suhr.jpg').default
     },
     {
@@ -24,6 +26,7 @@ const arrProductos = [
         categoria: "Guitarra eléctrica",
         calificacion: 4.5,
         precio: 100000,
+        stock: 10,
         urlImagen: require('../media/guitarras/tele.jpg').default
     },
     {
@@ -33,6 +36,7 @@ const arrProductos = [
         categoria: "Guitarra eléctrica",
         calificacion: 5,
         precio: 220000,
+        stock: 8,
         urlImagen: require('../media/guitarras/horizon.jpg').default
     },
     {
@@ -42,6 +46,7 @@ const arrProductos = [
         categoria: "Guitarra eléctrica",
         calificacion: 4.5,
         precio: 190000,
+        stock: 30,
         urlImagen: require('../media/guitarras/strato.jpg').default
     },
     {
@@ -51,6 +56,7 @@ const arrProductos = [
         categoria: "Amplificador",
         calificacion: 4,
         precio: 120000,
+        stock: 3,
         urlImagen: require('../media/amplificadores/dual-terror.jpg').default
     },
     {
@@ -60,6 +66,7 @@ const arrProductos = [
         categoria: "Amplificador",
         calificacion: 4,
         precio: 390000,
+        stock: 2,
         urlImagen: require('../media/amplificadores/jcm-900.jpg').default
     },
     {
@@ -69,6 +76,7 @@ const arrProductos = [
         categoria: "Amplificador",
         calificacion: 4.5,
         precio: 150000,
+        stock: 5,
         urlImagen: require('../media/amplificadores/ac30.jpg').default
     },
     {
@@ -78,6 +86,7 @@ const arrProductos = [
         categoria: "Amplificador",
         calificacion: 5,
         precio: 300000,
+        stock: 3,
         urlImagen: require('../media/amplificadores/deluxe-reverb.jpg').default
     }
 ]

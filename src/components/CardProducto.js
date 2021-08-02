@@ -1,7 +1,8 @@
 import {Card, CardMedia,CardContent, Typography, makeStyles, Button, Box, Divider, CardActions} from '@material-ui/core';
 import {Rating} from '@material-ui/lab';
 import {ShoppingCart} from '@material-ui/icons'
-// import imagen from '../media/dual-terror.jpg';
+import ItemCount from "./ItemCount";
+
 
 const useStyles = makeStyles({
     cardContent: {
@@ -43,6 +44,7 @@ function CardProducto(props){
                     </Typography>
                 </Box>
             </CardContent>
+            <ItemCount stock={props.stock}/>
             <CardActions>
                 <Button variant="contained" color="primary" fullWidth startIcon={<ShoppingCart />}>
                     <Typography variant="body1" component="h6">

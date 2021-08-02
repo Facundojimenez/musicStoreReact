@@ -12,6 +12,7 @@ function GridProductos(){
                                 <CardProducto   marca={producto.marca}
                                                 modelo={producto.modelo}
                                                 precio={producto.precio}
+                                                stock={producto.stock}
                                                 categoria={producto.categoria}
                                                 calificacion={producto.calificacion}
                                                 urlImagen={producto.urlImagen}/>
