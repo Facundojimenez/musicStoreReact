@@ -1,0 +1,15 @@
+[
+    {
+        "id": 1,
+        "marca": "intel",
+        "precio": 1000,
+        "urlImagen": "../media/guitarras/lespaul.jpg"
+    },
+    {
+        "id": 2,
+        "marca": "intel",
+        "precio": 1000,
+        "urlImagen": "https://cdn5.dibujos.net/dibujos/pintados/201150/77b5f408fb50031649f44838dba18f31.png"
+        
+    }
+]

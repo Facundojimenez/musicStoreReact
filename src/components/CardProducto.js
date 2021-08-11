@@ -26,7 +26,7 @@ function CardProducto(props){
     const classes = useStyles();
     return(
         <Card className={classes.card}>
-            <CardMedia className={classes.cardFoto} component="img" image={props.urlImagen} title="Amplificador"/>
+            <CardMedia className={classes.cardFoto} component="img" image={props.urlImagen} title={` ${props.categoria} ${props.marca} ${props.modelo}`}/>
             <CardContent className={classes.cardContent}>
                 <Box className={classes.cardBoxContent} py={1}>
                     <Typography variant="h5" component="h5">

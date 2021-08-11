@@ -2,6 +2,8 @@ import AddIcon from '@material-ui/icons/Add';
 import RemoveIcon from '@material-ui/icons/Remove';
 import { Box, IconButton, makeStyles } from '@material-ui/core';
 import { useState } from 'react';
+import Snackbar from '@material-ui/core/Snackbar';
+import MuiAlert from '@material-ui/lab/Alert';
 
 const useStyle = makeStyles({
     contenedor: {
@@ -16,13 +18,24 @@ const useStyle = makeStyles({
     }
 })
 
+
+
 function ItemCount(props){
     const classes = useStyle();
     const [cantidadElegida, setCantidad] = useState(1);
+    const [snackBarStatus, setSnackBarStatus] = useState(false);
+    const handleClose = (event, reason) => {
+        if (reason === 'clickaway') {
+          return;
+        }
+    
+        setSnackBarStatus(false);
+    };
+
     return (
         <Box className={classes.contenedor}>
             <IconButton onClick={() => {
-                if(cantidadElegida > 0){
+                if(cantidadElegida > 1){
                     setCantidad(cantidadElegida - 1);
                 }
             }}>
@@ -40,11 +53,24 @@ function ItemCount(props){
                     setCantidad(cantidadElegida + 1);
                 }
                 else{
-                    alert(`El stock máximo de este articulo es: ${props.stock} unidades`)
+                    setSnackBarStatus(true)
                 }
             }}>
                 <AddIcon/>
             </IconButton>
+            <Snackbar
+                anchorOrigin={{
+                    vertical: "bottom",
+                    horizontal: "right",
+                }}
+                open={snackBarStatus}
+                autoHideDuration={5000}
+                onClose={handleClose}
+            >
+                <MuiAlert variant="filled" onClose={handleClose} severity="info">
+                    {`El stock disponible  del artículo es: ${props.stock} unidades` }
+                </MuiAlert>
+            </Snackbar>
         </Box>
     )
 }

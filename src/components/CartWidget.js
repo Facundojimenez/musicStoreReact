@@ -4,7 +4,7 @@ import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 function CartWidget(){
     return (
          <IconButton aria-label="carrito" color="inherit">
-            <ShoppingCartIcon/>
+            <ShoppingCartIcon fontSize="large"/>
         </IconButton>
     )
 }

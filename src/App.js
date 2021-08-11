@@ -3,10 +3,18 @@ import GridProductos from './components/GridProductos.js';
 import Footer from './components/Footer.js'
 import { Container, Box, makeStyles, Typography } from '@material-ui/core';
 import BannerSlider from './components/BannerSlider.js';
+import ContactForm from './components/ContactForm.js';
+import Tema from './components/tema.js';
 
 const useStyles = makeStyles({
 	body: {
 		backgroundColor: "#eee"
+	},
+	contactFormContainer:{
+		display: "flex",
+		justifyContent: "center",
+		padding: "48px 16px",
+		backgroundColor: Tema.palette.primary[400]
 	}
 })
 
@@ -24,6 +32,9 @@ function App() {
 				</Box>
 				<GridProductos/>
 			</Container>
+			<Box className={classes.contactFormContainer}>
+				<ContactForm id="contactForm" />
+			</Box>
 			<Footer/>
 		</div>
   );
