@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/musicStoreReact/static/css/main.9cca8f28.chunk.css",
-    "main.js": "/musicStoreReact/static/js/main.287a2a26.chunk.js",
-    "main.js.map": "/musicStoreReact/static/js/main.287a2a26.chunk.js.map",
+    "main.js": "/musicStoreReact/static/js/main.7df1d702.chunk.js",
+    "main.js.map": "/musicStoreReact/static/js/main.7df1d702.chunk.js.map",
     "runtime-main.js": "/musicStoreReact/static/js/runtime-main.3882a763.js",
     "runtime-main.js.map": "/musicStoreReact/static/js/runtime-main.3882a763.js.map",
     "static/css/2.561ef567.chunk.css": "/musicStoreReact/static/css/2.561ef567.chunk.css",
@@ -32,6 +32,6 @@
     "static/css/2.561ef567.chunk.css",
     "static/js/2.b66e7b25.chunk.js",
     "static/css/main.9cca8f28.chunk.css",
-    "static/js/main.287a2a26.chunk.js"
+    "static/js/main.7df1d702.chunk.js"
   ]
 }
