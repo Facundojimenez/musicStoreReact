@@ -4,10 +4,8 @@ import Tema from "./tema";
 
 const useStyles = makeStyles({
     formContainer:{
-        // textAlign: "center",
         display: "flex",
         justifyContent: "center",
-        // backgroundColor: "#eee",
         padding: "16px",
         minHeight: "500px",
         maxWidth: "600px"
@@ -17,9 +15,7 @@ const useStyles = makeStyles({
         flexDirection: "column",
         justifyContent: "space-evenly",
         alignItems: "center",
-        // backgroundColor: "red",
         [Tema.breakpoints.up('md')]: {
-            // backgroundColor: "red",
             width: "75%"
         }
     },
@@ -51,18 +47,14 @@ function ContactForm(){
                         <Grid item xs={12}>
                             <TextField fullWidth id="outlined-basic" label="Mensaje" variant="outlined" />
                         </Grid>
-                        {/* <Grid item xs={12}>
-                            <Box display="flex" justifyContent="center">
-                            </Box>
-                        </Grid> */}
                     </Grid>
                     <Box display="flex" justifyContent="center">
                         <Button
-                        className={classes.botonEnviar}
-                        size="large"
-                        variant="contained"
-                        color="primary"
-                        endIcon={<SendIcon/>}
+                            className={classes.botonEnviar}
+                            size="large"
+                            variant="contained"
+                            color="primary"
+                            endIcon={<SendIcon/>}
                         >
                             Send
                         </Button>

@@ -1,4 +1,3 @@
-
 import { makeStyles, Typography, IconButton, Container, Box } from "@material-ui/core"
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import GitHubIcon from '@material-ui/icons/GitHub';
