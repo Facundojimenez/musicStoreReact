@@ -4,10 +4,17 @@ import App from './App';
 import estilo from './styles/estiloGeneral.css'
 import reportWebVitals from './reportWebVitals';
 
+// ReactDOM.render(
+//   <React.StrictMode>
+//     <App style={estilo}/>
+//   </React.StrictMode>,
+//   document.getElementById('root')
+// );
+
+//Esto es para arreglar el bug del drawer que muestra un error por consola. (Es un problema de material UI)
+
 ReactDOM.render(
-  <React.StrictMode>
-    <App style={estilo}/>
-  </React.StrictMode>,
+    <App style={estilo}/>,
   document.getElementById('root')
 );
 

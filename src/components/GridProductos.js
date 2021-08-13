@@ -2,7 +2,6 @@ import CardProducto from "./CardProducto";
 import {Grid, Box} from "@material-ui/core"
 import arrProductos from "../data/dataProductos";
 
-
 function GridProductos(){
     return (
         <Box my={2}>

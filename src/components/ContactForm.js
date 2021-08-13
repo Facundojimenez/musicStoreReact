@@ -29,7 +29,7 @@ function ContactForm(){
     return (
         <Paper className={classes.formContainer}>
             <Box className={classes.formInnerContainer}>
-                <Typography  textAlign="center" variant="h4" element="h4" color="initial">
+                <Typography  textalign="center" variant="h4" element="h4" color="initial">
                     ¡Contactanos!
                 </Typography>
                 <form>

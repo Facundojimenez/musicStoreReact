@@ -8,13 +8,13 @@ import Tema from './components/tema.js';
 
 const useStyles = makeStyles({
 	body: {
-		backgroundColor: "#eee"
+		backgroundColor: Tema.palette.background.default
 	},
 	contactFormContainer:{
 		display: "flex",
 		justifyContent: "center",
 		padding: "48px 16px",
-		backgroundColor: Tema.palette.primary[400]
+		backgroundColor: Tema.palette.primary.main
 	}
 })
 

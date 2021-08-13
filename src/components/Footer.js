@@ -6,7 +6,7 @@ import Tema from "./tema";
 
 const useStyles = makeStyles({
     letrasBlancas: {
-        color: "#ffffff"
+        color: Tema.palette.common.white
     },
     footer: {
         minHeight: "10vh",
@@ -16,8 +16,8 @@ const useStyles = makeStyles({
         alignItems: "center",
         maxHeight: "300px",
         padding: "1rem",
-        color: "#ffffff",
-        backgroundColor: Tema.palette.primary.main
+        color: Tema.palette.common.white,
+        backgroundColor: Tema.palette.primary.dark
     }
 })
 
@@ -25,7 +25,7 @@ function Footer(){
     const classes = useStyles();
     return (
         <Container maxWidth={false} className={classes.footer}>
-            <Typography textAlign="center" variant="h5" element="h4" color="initial">
+            <Typography textalign="center" variant="h5" element="h4" color="initial">
                 ¡Seguime en mis redes!
             </Typography>
             <Box display="flex">
