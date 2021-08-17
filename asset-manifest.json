@@ -1,37 +1,29 @@
 {
   "files": {
     "main.css": "/musicStoreReact/static/css/main.9cca8f28.chunk.css",
-    "main.js": "/musicStoreReact/static/js/main.adbcbe41.chunk.js",
-    "main.js.map": "/musicStoreReact/static/js/main.adbcbe41.chunk.js.map",
-    "runtime-main.js": "/musicStoreReact/static/js/runtime-main.841318fa.js",
-    "runtime-main.js.map": "/musicStoreReact/static/js/runtime-main.841318fa.js.map",
+    "main.js": "/musicStoreReact/static/js/main.e360951d.chunk.js",
+    "main.js.map": "/musicStoreReact/static/js/main.e360951d.chunk.js.map",
+    "runtime-main.js": "/musicStoreReact/static/js/runtime-main.61715c8c.js",
+    "runtime-main.js.map": "/musicStoreReact/static/js/runtime-main.61715c8c.js.map",
     "static/css/2.561ef567.chunk.css": "/musicStoreReact/static/css/2.561ef567.chunk.css",
-    "static/js/2.94c19ebe.chunk.js": "/musicStoreReact/static/js/2.94c19ebe.chunk.js",
-    "static/js/2.94c19ebe.chunk.js.map": "/musicStoreReact/static/js/2.94c19ebe.chunk.js.map",
-    "static/js/3.41e25b10.chunk.js": "/musicStoreReact/static/js/3.41e25b10.chunk.js",
-    "static/js/3.41e25b10.chunk.js.map": "/musicStoreReact/static/js/3.41e25b10.chunk.js.map",
+    "static/js/2.0e039dd5.chunk.js": "/musicStoreReact/static/js/2.0e039dd5.chunk.js",
+    "static/js/2.0e039dd5.chunk.js.map": "/musicStoreReact/static/js/2.0e039dd5.chunk.js.map",
+    "static/js/3.e429910c.chunk.js": "/musicStoreReact/static/js/3.e429910c.chunk.js",
+    "static/js/3.e429910c.chunk.js.map": "/musicStoreReact/static/js/3.e429910c.chunk.js.map",
     "index.html": "/musicStoreReact/index.html",
     "static/css/2.561ef567.chunk.css.map": "/musicStoreReact/static/css/2.561ef567.chunk.css.map",
     "static/css/main.9cca8f28.chunk.css.map": "/musicStoreReact/static/css/main.9cca8f28.chunk.css.map",
-    "static/js/2.94c19ebe.chunk.js.LICENSE.txt": "/musicStoreReact/static/js/2.94c19ebe.chunk.js.LICENSE.txt",
-    "static/media/ac30.jpg": "/musicStoreReact/static/media/ac30.9c258347.jpg",
+    "static/js/2.0e039dd5.chunk.js.LICENSE.txt": "/musicStoreReact/static/js/2.0e039dd5.chunk.js.LICENSE.txt",
     "static/media/bannerBienvenida1.jpeg": "/musicStoreReact/static/media/bannerBienvenida1.ff178040.jpeg",
     "static/media/bannerBienvenida2.jpeg": "/musicStoreReact/static/media/bannerBienvenida2.3f74198e.jpeg",
     "static/media/bannerBienvenida3.jpeg": "/musicStoreReact/static/media/bannerBienvenida3.1b178e2d.jpeg",
-    "static/media/deluxe-reverb.jpg": "/musicStoreReact/static/media/deluxe-reverb.377009fc.jpg",
-    "static/media/dual-terror.jpg": "/musicStoreReact/static/media/dual-terror.8a04fa76.jpg",
-    "static/media/jcm-900.jpg": "/musicStoreReact/static/media/jcm-900.2fac8b22.jpg",
-    "static/media/lespaul.jpg": "/musicStoreReact/static/media/lespaul.2ef661b6.jpg",
-    "static/media/index.css": "/musicStoreReact/static/media/roboto-vietnamese-400-normal.c0bec65d.woff2",
-    "static/media/strato.jpg": "/musicStoreReact/static/media/strato.e6219458.jpg",
-    "static/media/suhr.jpg": "/musicStoreReact/static/media/suhr.6b01b9a2.jpg",
-    "static/media/tele.jpg": "/musicStoreReact/static/media/tele.90e3fcba.jpg"
+    "static/media/index.css": "/musicStoreReact/static/media/roboto-vietnamese-400-normal.c0bec65d.woff2"
   },
   "entrypoints": [
-    "static/js/runtime-main.841318fa.js",
+    "static/js/runtime-main.61715c8c.js",
     "static/css/2.561ef567.chunk.css",
-    "static/js/2.94c19ebe.chunk.js",
+    "static/js/2.0e039dd5.chunk.js",
     "static/css/main.9cca8f28.chunk.css",
-    "static/js/main.adbcbe41.chunk.js"
+    "static/js/main.e360951d.chunk.js"
   ]
 }
