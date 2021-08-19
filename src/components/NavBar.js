@@ -1,19 +1,23 @@
-import '@fontsource/roboto';
 import {AppBar, Toolbar, Typography, Button, makeStyles, Hidden} from '@material-ui/core';
 import { ThemeProvider } from '@material-ui/styles';
 import Tema from './tema';
 import CartWidget from './CartWidget';
 import DrawerMobile from './DrawerMobile';
+import { Link } from 'react-router-dom';
 
 const useStyle = makeStyles({
     espacioAppBar: Tema.mixins.toolbar,
     logoBrand: {
         flexGrow: 1
+    },
+    links:{
+        textDecoration: 'none',
+        color: "inherit"
     }
 })
 
 function NavBar(){
-    const classes = useStyle(); ///este es un hook
+    const classes = useStyle();
     return (
         <ThemeProvider theme={Tema}>
             <AppBar position="fixed">
@@ -23,15 +27,21 @@ function NavBar(){
                         Music Store
                     </Typography>
                     <Hidden smDown>
-                        <Button color="inherit">
-                            Home
-                        </Button>
-                        <Button color="inherit">
-                            Productos
-                        </Button>
-                        <Button color="inherit">
-                            Contacto
-                        </Button>
+                        <Link to="/" className={classes.links}>
+                            <Button color="inherit">
+                                Home
+                            </Button>
+                        </Link>
+                        <Link to="/productos" className={classes.links}>
+                            <Button color="inherit">
+                                Productos
+                            </Button>
+                        </Link>
+                        <Link to="/contacto" className={classes.links}>
+                            <Button color="inherit">
+                                Contacto
+                            </Button>
+                        </Link>
                     </Hidden>
                     <CartWidget/>
                 </Toolbar>

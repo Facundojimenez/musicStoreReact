@@ -1,0 +1,23 @@
+import { Box, makeStyles } from "@material-ui/core";
+import ContactForm from "../components/ContactForm";
+import Tema from "../components/tema";
+
+const useStyles = makeStyles({
+	contactFormContainer:{
+		display: "flex",
+		justifyContent: "center",
+		padding: "48px 16px",
+		backgroundColor: Tema.palette.primary.main
+	}
+})
+
+function Contacto(){
+    const classes = useStyles();
+    return(
+        <Box className={classes.contactFormContainer}>
+			<ContactForm id="contactForm" />
+		</Box>
+    )
+}
+
+export default Contacto;

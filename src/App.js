@@ -1,42 +1,38 @@
 import NavBar from './components/NavBar.js';
-import GridProductos from './components/GridProductos.js';
 import Footer from './components/Footer.js'
-import { Container, Box, makeStyles, Typography } from '@material-ui/core';
-import BannerSlider from './components/BannerSlider.js';
-import ContactForm from './components/ContactForm.js';
+import { makeStyles } from '@material-ui/core';
 import Tema from './components/tema.js';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import Productos from './pages/Productos.js';
+import Contacto from './pages/Contacto.js';
+import Homepage from './pages/Home.js'
 
 const useStyles = makeStyles({
 	body: {
 		backgroundColor: Tema.palette.background.default
-	},
-	contactFormContainer:{
-		display: "flex",
-		justifyContent: "center",
-		padding: "48px 16px",
-		backgroundColor: Tema.palette.primary.main
 	}
 })
 
 function App() {
 	const classes = useStyles();
   return (
-		<div className={classes.body} >
-			<NavBar/>
-			<BannerSlider/>
-			<Container>
-				<Box my={5}>
-					<Typography variant="h3" element="h3"color="initial" align="center">
-						Nuestro Catálogo
-					</Typography>
-				</Box>
-				<GridProductos/>
-			</Container>
-			<Box className={classes.contactFormContainer}>
-				<ContactForm id="contactForm" />
-			</Box>
-			<Footer/>
-		</div>
+	  	<BrowserRouter>
+			<div className={classes.body} >
+				<NavBar/>
+				<Switch>
+					<Route exact path="/">
+						<Homepage/>
+					</Route>
+					<Route exact path="/productos">
+						<Productos/>
+					</Route>
+					<Route exact path="/contacto">
+						<Contacto/>
+					</Route>
+				</Switch>
+				<Footer/>
+			</div>
+		</BrowserRouter>
   );
 }
 
