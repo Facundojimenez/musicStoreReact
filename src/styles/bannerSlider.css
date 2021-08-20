@@ -1,9 +1,6 @@
-.swiper-container{
-    height: 50vh;
-}
+/*todas estas clases son inventadas por mi*/
 
-.container-img-banner{
-    height: 50vh;
+.banner-contenido{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -11,10 +8,5 @@
     background-size: cover;
     background-position: center;
     text-align: center;
-    color: #fff
 }
 
-.img-banner{
-    width: 100%;
-    object-fit: contain;
-}

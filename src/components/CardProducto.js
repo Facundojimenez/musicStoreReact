@@ -3,7 +3,6 @@ import {Rating} from '@material-ui/lab';
 import {ShoppingCart} from '@material-ui/icons'
 import ItemCount from "./ItemCount";
 
-
 const useStyles = makeStyles({
     cardContent: {
         padding: "0"

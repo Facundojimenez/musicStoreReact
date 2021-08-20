@@ -16,7 +16,8 @@ SwiperCore.use([Navigation, Pagination, Autoplay]);
 
 function BannerSlider(){
     return (
-        <Swiper pagination={{
+        <Swiper
+                pagination={{
                     "dynamicBullets": true
                 }}
                 navigation={true}
@@ -30,8 +31,11 @@ function BannerSlider(){
         >
         {
             arrBanners.map(banner => {
-                return  <SwiperSlide key={banner.id}>
-                            <div className="container-img-banner" style={{'backgroundImage': `url(${banner.urlImagen})`}}>
+                return  <SwiperSlide key={banner.id} >
+                            <div className="banner-contenido"
+                             style={{'backgroundImage': `url(${banner.urlImagen})`,
+                                     "color": "#fff", 
+                                     "height": "50vh"}}>
                                 <Typography variant="h2" component="h2">
                                     {banner.titulo}
                                 </Typography>

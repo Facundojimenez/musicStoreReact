@@ -1,4 +1,4 @@
-import {AppBar, Toolbar, Typography, Button, makeStyles, Hidden} from '@material-ui/core';
+import {AppBar, Toolbar, Typography, Button, Box, makeStyles, Hidden} from '@material-ui/core';
 import { ThemeProvider } from '@material-ui/styles';
 import Tema from './tema';
 import CartWidget from './CartWidget';
@@ -7,9 +7,6 @@ import { Link } from 'react-router-dom';
 
 const useStyle = makeStyles({
     espacioAppBar: Tema.mixins.toolbar,
-    logoBrand: {
-        flexGrow: 1
-    },
     links:{
         textDecoration: 'none',
         color: "inherit"
@@ -21,11 +18,15 @@ function NavBar(){
     return (
         <ThemeProvider theme={Tema}>
             <AppBar position="fixed">
-<                Toolbar>
+                <Toolbar>
                     <DrawerMobile/>
-                    <Typography className={classes.logoBrand} variant="h6" element="h6">
-                        Music Store
-                    </Typography>
+                    <Box display="flex" flexGrow={1}>
+                        <Link to="/" className={classes.links}>
+                            <Typography variant="h6" element="h6">
+                                Music Store
+                            </Typography>
+                        </Link>
+                    </Box>
                     <Hidden smDown>
                         <Link to="/" className={classes.links}>
                             <Button color="inherit">
