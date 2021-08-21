@@ -8,7 +8,7 @@ function GridProductos(){
         getProductos();
     }, []);
     const getProductos = async () => {
-        const response = await (await fetch("https://raw.githubusercontent.com/Facundojimenez/musicStoreReact/main/src/data/jsonProductos.json")).json();
+        const response = await (await fetch("https://raw.githubusercontent.com/Facundojimenez/musicStoreReact/main/src/data/dataProductos.json")).json();
         setProductos(response);
     } 
     return (
