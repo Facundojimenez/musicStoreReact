@@ -7,7 +7,6 @@ const useStyles = makeStyles({
 		display: "flex",
 		justifyContent: "center",
 		padding: "48px 16px",
-		backgroundColor: Tema.palette.primary.main
 	}
 })
 

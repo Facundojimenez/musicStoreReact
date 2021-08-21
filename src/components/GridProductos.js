@@ -1,16 +1,16 @@
 import CardProducto from "./CardProducto";
-import {Grid, Box} from "@material-ui/core"
+import {Grid, Box, Typography} from "@material-ui/core"
 import { useEffect, useState } from "react";
 
 function GridProductos(){
     const [productos, setProductos] = useState([]);
     useEffect(() => {
-        getProductos();
+        getProductos(); 
     }, []);
     const getProductos = async () => {
         const response = await (await fetch("https://raw.githubusercontent.com/Facundojimenez/musicStoreReact/main/src/data/dataProductos.json")).json();
         setProductos(response);
-    } 
+    }
     return (
         <Box my={2}>
             <Grid container spacing={2}>
@@ -33,6 +33,7 @@ function GridProductos(){
             </Grid>
         </Box>
     );
+    
 }
 
 export default GridProductos;

@@ -12,7 +12,9 @@ const useStyle = makeStyles({
     },
     imgProducto: {
         // minWidth: "100%",
-        width: "500px"
+        maxHeight: "500px",
+        maxWidth: "100%",
+        boxShadow: "4px 2px 8px rgba(0,0,0,0.25)"
     },
     panelCompra:{
         [Tema.breakpoints.up('md')]: {
@@ -42,14 +44,14 @@ function DetalleProducto(){
     }, [])
     return(
         <Container>
-            <Box marginTop={3}>
-                <Link to="/productos" style={{"textDecoration": "none", "color": "inherit"}}>
+            <Link to="/musicStoreReact/productos" style={{"textDecoration": "none", "color": "inherit", "margin": "16px"}}>
+                <Box display="flex" alignItems="center">
+                    <ArrowBackIcon/> 
                     <Typography variant="h5" color="initial">
-                        <ArrowBackIcon/> 
                         Volver a Productos
                     </Typography>
-                </Link>
-            </Box>
+                </Box>
+            </Link>
             <Separador/>
             <Box marginTop={5}>
                 <Grid container spacing={2}>

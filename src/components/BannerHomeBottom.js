@@ -74,8 +74,8 @@ function BannerHomeBottom(){
                                                     "borderRadius": "0.25rem"
                                                 }}
                                         >
-                                            <Box mb={1} bgcolor={Tema.palette.primary.main} color="#fff" borderRadius="50%" p={2}> 
-                                                <FormatQuoteIcon fontSize="big"/>
+                                            <Box mb={1} bgcolor={Tema.palette.primary.main} color="#fff" borderRadius="50%" p={1}> 
+                                                <FormatQuoteIcon fontSize="large"/>
                                             </Box>
                                             <Box mb={3}>
                                                 <Typography variant="h6" component="p">

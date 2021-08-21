@@ -1,6 +1,15 @@
-function Separador(){
+
+function Separador(props){
+    let margenY = "8px",
+        color = "#aaa";
+    if(props.margenY){
+        margenY = props.margenY;
+    }
+    if(props.color){
+        color = props.color
+    }
     return(
-        <div style={{"borderTop": "2px solid #aaa", "margin": "8px 0"}}></div>
+        <div style={{"borderTop": `2px solid ${color}`, "margin": `${margenY} 0`} }></div>
     )
 }
 

@@ -21,16 +21,16 @@ function App() {
 			<div className={classes.body} >
 				<NavBar/>
 				<Switch>
-					<Route exact path="/">
+					<Route exact path="/musicStoreReact">
 						<Homepage/>
 					</Route>
-					<Route exact path="/productos">
+					<Route exact path="/musicStoreReact/productos">
 						<Productos/>
 					</Route>
-					<Route exact path="/contacto">
+					<Route exact path="/musicStoreReact/contacto">
 						<Contacto/>
 					</Route>
-					<Route exact path="/productos/:id">
+					<Route exact path="/musicStoreReact/productos/:id">
 						<DetalleProducto/>
 					</Route>
 				</Switch>

@@ -30,7 +30,7 @@ function DrawerMobile(){
                 onOpen={() => setOpen(true)}
             >
                 <List component="nav" aria-label="main mailbox folders">
-                    <Link to="/" className={classes.links}>
+                    <Link to="/musicStoreReact" className={classes.links}>
                         <ListItem button>
                             <ListItemIcon>
                                 <StoreIcon/>
@@ -38,7 +38,7 @@ function DrawerMobile(){
                             <ListItemText primary="Home" />
                         </ListItem>
                     </Link>
-                    <Link to="/productos" className={classes.links}>
+                    <Link to="/musicStoreReact/productos" className={classes.links}>
                         <ListItem button>
                             <ListItemIcon>
                                 <LocalMallIcon/>
@@ -46,7 +46,7 @@ function DrawerMobile(){
                             <ListItemText primary="Productos" />
                         </ListItem>
                     </Link>
-                    <Link  to="/contacto" className={classes.links}>
+                    <Link  to="/musicStoreReact/contacto" className={classes.links}>
                         <ListItem button>
                             <ListItemIcon>
                                 <ContactMailIcon/>

@@ -21,24 +21,24 @@ function NavBar(){
                 <Toolbar>
                     <DrawerMobile/>
                     <Box display="flex" flexGrow={1}>
-                        <Link to="/" className={classes.links}>
+                        <Link to="/musicStoreReact" className={classes.links}>
                             <Typography variant="h6" element="h6">
                                 Music Store
                             </Typography>
                         </Link>
                     </Box>
                     <Hidden smDown>
-                        <Link to="/" className={classes.links}>
+                        <Link to="/musicStoreReact" className={classes.links}>
                             <Button color="inherit">
                                 Home
                             </Button>
                         </Link>
-                        <Link to="/productos" className={classes.links}>
+                        <Link to="/musicStoreReact/productos" className={classes.links}>
                             <Button color="inherit">
                                 Productos
                             </Button>
                         </Link>
-                        <Link to="/contacto" className={classes.links}>
+                        <Link to="/musicStoreReact/contacto" className={classes.links}>
                             <Button color="inherit">
                                 Contacto
                             </Button>

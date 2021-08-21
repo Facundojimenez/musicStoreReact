@@ -15,6 +15,28 @@ const useStyles = makeStyles({
         justifyContent: "space-evenly",
         minHeight: "100px"
     },
+    overlay:{
+        position: "absolute",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        width: "100%",
+        height: "100%",
+        top: "50%",
+        left: "50%",
+        opacity: "0",
+        transform: "translate(-50%,-50%)",
+        color: "white",
+        textDecoration: "none",
+        transition: "all 250ms",
+        "&:hover":{
+            opacity: "1",
+            backgroundColor: "rgba(0,0,0,0.5)"
+        }
+    },
+    linkContainer:{
+        position: "relative"
+    },
     cardFoto: {
         height: "300px",
         minWidth: "200px",
@@ -29,8 +51,13 @@ function CardProducto(props){
     const classes = useStyles();
     return(
         <Card className={classes.card}>
-            <Link to={`/productos/${props.id}`}>
-                <CardMedia className={classes.cardFoto} component="img" image={props.urlImagen} title={` ${props.categoria} ${props.marca} ${props.modelo}`}/>
+            <Link to={`productos/${props.id}`}>
+                <Box className={classes.linkContainer}>
+                    <CardMedia className={classes.cardFoto} component="img" image={props.urlImagen} title={` ${props.categoria} ${props.marca} ${props.modelo}`}/>
+                    <Typography variant="h5" component="h5" className={classes.overlay}>
+                        Ver más detalles
+                    </Typography>
+                </Box>
             </Link>
             <CardContent className={classes.cardContent}>
                 <Box className={classes.cardBoxContent} py={1}>
