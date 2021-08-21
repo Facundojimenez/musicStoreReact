@@ -7,11 +7,10 @@ import MuiAlert from '@material-ui/lab/Alert';
 
 const useStyle = makeStyles({
     contenedor: {
-        margin: "auto",
-        display: "flex",
+        display: "inline-flex",
         justifyContent: "center",
+        alignItems: "center",
         height: "30px",
-        width: "60%"
     },
     cantidadOutput: {
         textAlign: "center",

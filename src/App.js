@@ -6,6 +6,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Productos from './pages/Productos.js';
 import Contacto from './pages/Contacto.js';
 import Homepage from './pages/Home.js'
+import DetalleProducto from './pages/DetalleProducto.js';
 
 const useStyles = makeStyles({
 	body: {
@@ -28,6 +29,9 @@ function App() {
 					</Route>
 					<Route exact path="/contacto">
 						<Contacto/>
+					</Route>
+					<Route exact path="/productos/:id">
+						<DetalleProducto/>
 					</Route>
 				</Switch>
 				<Footer/>

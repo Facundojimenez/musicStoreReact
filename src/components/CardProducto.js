@@ -2,6 +2,7 @@ import {Card, CardMedia,CardContent, Typography, makeStyles, Button, Box, Divide
 import {Rating} from '@material-ui/lab';
 import {ShoppingCart} from '@material-ui/icons'
 import ItemCount from "./ItemCount";
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles({
     cardContent: {
@@ -18,6 +19,9 @@ const useStyles = makeStyles({
         height: "300px",
         minWidth: "200px",
         objectFit: "contain"
+    },
+    itemCountContainer:{
+        textAlign: "center"
     }
 })
 
@@ -25,7 +29,9 @@ function CardProducto(props){
     const classes = useStyles();
     return(
         <Card className={classes.card}>
-            <CardMedia className={classes.cardFoto} component="img" image={props.urlImagen} title={` ${props.categoria} ${props.marca} ${props.modelo}`}/>
+            <Link to={`/productos/${props.id}`}>
+                <CardMedia className={classes.cardFoto} component="img" image={props.urlImagen} title={` ${props.categoria} ${props.marca} ${props.modelo}`}/>
+            </Link>
             <CardContent className={classes.cardContent}>
                 <Box className={classes.cardBoxContent} py={1}>
                     <Typography variant="h5" component="h5">
@@ -43,7 +49,9 @@ function CardProducto(props){
                     </Typography>
                 </Box>
             </CardContent>
-            <ItemCount stock={props.stock}/>
+            <Box className={classes.itemCountContainer}>
+                <ItemCount stock={props.stock}/>
+            </Box>
             <CardActions>
                 <Button variant="contained" color="primary" fullWidth startIcon={<ShoppingCart />}>
                     <Typography variant="body1" component="h6">
