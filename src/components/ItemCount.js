@@ -56,13 +56,13 @@ function ItemCount(props){
                 <AddIcon/>
             </IconButton>
             <Snackbar
+                open={snackBarStatus}
+                autoHideDuration={5000}
+                onClose={handleClose}
                 anchorOrigin={{
                     vertical: "bottom",
                     horizontal: "right",
                 }}
-                open={snackBarStatus}
-                autoHideDuration={5000}
-                onClose={handleClose}
             >
                 <MuiAlert variant="filled" onClose={handleClose} severity="info">
                     {`El stock disponible  del artículo es: ${props.stock} unidades` }

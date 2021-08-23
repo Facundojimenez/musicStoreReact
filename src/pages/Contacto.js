@@ -1,6 +1,5 @@
 import { Box, makeStyles } from "@material-ui/core";
 import ContactForm from "../components/ContactForm";
-import Tema from "../components/tema";
 
 const useStyles = makeStyles({
 	contactFormContainer:{

@@ -19,7 +19,7 @@ import '../styles/bannerSlider.css';
 SwiperCore.use([Navigation, Autoplay]);
 
 const useStyles = makeStyles({
-    banner:{
+    bannerEstatico:{
         minHeight: "20vh",
         padding: "3rem",
         color: Tema.palette.primary.contrastText,
@@ -28,13 +28,28 @@ const useStyles = makeStyles({
         backgroundPosition: "center",
         backgroundAttachment: "fixed",
         backgroundRepeat: "no-repeat"
+    },
+    iconoComillas:{
+        backgroundColor: Tema.palette.primary.main,
+        color: Tema.palette.primary.contrastText,
+        borderRadius: "50%",
+        padding: "0.5rem",
+        marginBottom: "8px"
+    },
+    sliderOpiniones:{
+        padding: "1rem 2.5rem",
+        backgroundColor: Tema.palette.common.white,
+        minHeight: "190px",
+        maxHeight: "50%",
+        color: Tema.palette.common.black,
+        borderRadius: "0.25rem"
     }
 })
 
 function BannerHomeBottom(){
     const classes = useStyles();
     return (
-        <Box className={classes.banner}>
+        <Box className={classes.bannerEstatico}>
             <Grid container spacing={3}>
                 <Grid item xs={12} md={7}>
                     <Box ml={5}>
@@ -51,45 +66,39 @@ function BannerHomeBottom(){
                 </Grid>
                 <Grid item xs={12} md={5}>
                     <Swiper 
-                    slidesPerView={1}
-                    spaceBetween={16}
-                    navigation={true}
-                    speed={1000}
-                    centeredSlides={true}
-                    centeredSlidesBounds={true}
-                    autoplay={{
-                        "delay": 5000,
-                        "disableOnInteraction": true
-                    }}
+                        slidesPerView={1}
+                        spaceBetween={16}
+                        navigation={true}
+                        speed={1000}
+                        centeredSlides={true}
+                        centeredSlidesBounds={true}
+                        autoplay={{
+                            "delay": 5000,
+                            "disableOnInteraction": true
+                        }}
                     >      
                     {
                         arrOpiniones.map(banner => {
-                            return  <SwiperSlide key={banner.id}>
-                                        <Box className="banner-contenido" style={{
-                                                    "padding": "1rem 2.5rem",
-                                                    "backgroundColor": "#fff",
-                                                    "minHeight": "190px",
-                                                    "maxHeight": "50%",
-                                                    "color": Tema.palette.common.black,
-                                                    "borderRadius": "0.25rem"
-                                                }}
-                                        >
-                                            <Box mb={1} bgcolor={Tema.palette.primary.main} color="#fff" borderRadius="50%" p={1}> 
-                                                <FormatQuoteIcon fontSize="large"/>
-                                            </Box>
-                                            <Box mb={3}>
-                                                <Typography variant="h6" component="p">
-                                                    {banner.mensaje}
-                                                </Typography>
-                                            </Box>
-                                            <Typography variant="h6" component="h2">
-                                                {banner.nombrePersona}
-                                            </Typography>
-                                            <Typography variant="body1" component="h2">
-                                                {banner.plataformaOrigen}
+                            return  (
+                                <SwiperSlide key={banner.id}>
+                                    <Box className={`banner-contenido ${classes.sliderOpiniones}`}>
+                                        <Box className={classes.iconoComillas}> 
+                                            <FormatQuoteIcon fontSize="large"/>
+                                        </Box>
+                                        <Box mb={3}>
+                                            <Typography variant="h6" component="p">
+                                                {banner.mensaje}
                                             </Typography>
                                         </Box>
-                                    </SwiperSlide>  
+                                        <Typography variant="h6" component="h6">
+                                            {banner.nombrePersona}
+                                        </Typography>
+                                        <Typography variant="body1" component="h6">
+                                            {banner.plataformaOrigen}
+                                        </Typography>
+                                    </Box>
+                                </SwiperSlide>  
+                            )
                         })
                     }
                     </Swiper>

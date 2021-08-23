@@ -25,10 +25,10 @@ function Footer(){
     const classes = useStyles();
     return (
         <Container maxWidth={false} className={classes.footer}>
-            <Typography textalign="center" variant="h5" element="h4" color="initial">
+            <Typography variant="h5" element="h4">
                 ¡Seguime en mis redes!
             </Typography>
-            <Box display="flex">
+            <Box>
                 <IconButton href="https://github.com/Facundojimenez" target="_blank" className={classes.letrasBlancas}>
                     <GitHubIcon fontSize="large"/>
                 </IconButton>

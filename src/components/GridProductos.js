@@ -1,5 +1,5 @@
 import CardProducto from "./CardProducto";
-import {Grid, Box, Typography} from "@material-ui/core"
+import {Grid, Box} from "@material-ui/core"
 import { useEffect, useState } from "react";
 
 function GridProductos(){
@@ -18,14 +18,17 @@ function GridProductos(){
                 productos.map(producto => {
                     return  (
                         <Grid item xs={12} sm={6} md={4} lg={3} key={producto.id}>
-                            <CardProducto   id={producto.id}
-                                            marca={producto.marca}
-                                            modelo={producto.modelo}
-                                            precio={producto.precio}
-                                            stock={producto.stock}
-                                            categoria={producto.categoria}
-                                            calificacion={producto.calificacion}
-                                            urlImagen={producto.urlImagen}/>
+                            <CardProducto  
+                                id={producto.id}
+                                marca={producto.marca}
+                                modelo={producto.modelo}
+                                precio={producto.precio}
+                                stock={producto.stock}
+                                categoria={producto.categoria}
+                                calificacion={producto.calificacion}
+                                habilitarBotones={true}
+                                urlLink={`productos/${producto.id}`}
+                                urlImagen={producto.urlImagen}/>
                         </Grid>
                     )
                 })

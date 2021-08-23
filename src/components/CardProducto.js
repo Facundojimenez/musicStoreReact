@@ -47,11 +47,30 @@ const useStyles = makeStyles({
     }
 })
 
+
 function CardProducto(props){
     const classes = useStyles();
+    const renderizarBotones = () => {
+        if(props.habilitarBotones){
+            return (
+                <>
+                    <Box className={classes.itemCountContainer}>
+                        <ItemCount stock={props.stock}/>
+                    </Box>
+                    <CardActions>
+                        <Button variant="contained" color="primary" fullWidth startIcon={<ShoppingCart />}>
+                            <Typography variant="body1" component="h6">
+                                Agregar al carrito
+                            </Typography>
+                        </Button>
+                    </CardActions>  
+                </>                
+            )
+        };
+    }
     return(
         <Card className={classes.card}>
-            <Link to={`productos/${props.id}`}>
+            <Link to={`${props.urlLink}`}>
                 <Box className={classes.linkContainer}>
                     <CardMedia className={classes.cardFoto} component="img" image={props.urlImagen} title={` ${props.categoria} ${props.marca} ${props.modelo}`}/>
                     <Typography variant="h5" component="h5" className={classes.overlay}>
@@ -76,16 +95,9 @@ function CardProducto(props){
                     </Typography>
                 </Box>
             </CardContent>
-            <Box className={classes.itemCountContainer}>
-                <ItemCount stock={props.stock}/>
-            </Box>
-            <CardActions>
-                <Button variant="contained" color="primary" fullWidth startIcon={<ShoppingCart />}>
-                    <Typography variant="body1" component="h6">
-                        Agregar al carrito
-                    </Typography>
-                </Button>
-            </CardActions>
+            {
+                renderizarBotones()      
+            }
         </Card>
     );
 }

@@ -5,13 +5,14 @@ import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import Tema from "../components/tema";
 import Separador from "../components/Separador";
 import ItemCount from "../components/ItemCount";
+import "../styles/links.css"
+import BannerRecomendaciones from "../components/BannerRecomendaciones";
 
 const useStyle = makeStyles({
     productoContainer: {
         // padding: "16px",
     },
     imgProducto: {
-        // minWidth: "100%",
         maxHeight: "500px",
         maxWidth: "100%",
         boxShadow: "4px 2px 8px rgba(0,0,0,0.25)"
@@ -41,17 +42,19 @@ function DetalleProducto(){
     };
     useEffect(() =>{
         getProducto();
-    }, [])
+    }, [id]) ///Al poner ID lo que hace es mirar cada vez que reciba nuevas props para volver a hacer el fetch del producto
     return(
         <Container>
-            <Link to="/musicStoreReact/productos" style={{"textDecoration": "none", "color": "inherit", "margin": "16px"}}>
-                <Box display="flex" alignItems="center">
-                    <ArrowBackIcon/> 
-                    <Typography variant="h5" color="initial">
-                        Volver a Productos
-                    </Typography>
-                </Box>
-            </Link>
+            <Box mt={2}>
+                <Link to="/musicStoreReact/productos" className="links">
+                    <Box display="flex" alignItems="center">
+                        <ArrowBackIcon/> 
+                        <Typography variant="h5" color="initial">
+                            Volver a Productos
+                        </Typography>
+                    </Box>
+                </Link>
+            </Box>
             <Separador/>
             <Box marginTop={5}>
                 <Grid container spacing={2}>
@@ -69,22 +72,22 @@ function DetalleProducto(){
                         </Hidden>
                         <Box className={classes.panelCompra}>
                             <Box className={classes.pagoContainer}>
-                                <Typography variant="h3" color="initial">
+                                <Typography variant="h3">
                                     ${producto.precio}
                                 </Typography>
-                                <Typography variant="h5" color="initial">
+                                <Typography variant="h5">
                                     Precio en efectivo o transferencia
                                 </Typography>
                             </Box>
                             <Box className={classes.pagoContainer} style={{"borderColor": "grey"}}>
-                                <Typography variant="h3" color="initial">
+                                <Typography variant="h3">
                                     ${producto.precio * 1.30}
                                 </Typography>
-                                <Typography variant="h5" color="initial">
+                                <Typography variant="h5">
                                     Precio en 12 Cuotas
                                 </Typography>
                             </Box>
-                            <Separador/>
+                            <Separador margenY="1rem"/>
                             <Box display="flex" alignItems="center">
                                 <ItemCount stock={producto.stock}/>
                                 <Button variant="contained" color="primary">
@@ -97,14 +100,17 @@ function DetalleProducto(){
                     </Grid>
                 </Grid>
             </Box>
-            <Separador/>
-            <Box my={5}>
+            <Separador margenY="32px"/>
+            <Box mb={5}>
                 <Typography variant="h4" color="initial">
                     Descripción
                 </Typography>
                 <Typography variant="body1" color="initial">
                     {producto.descripcion}
                 </Typography>
+            </Box>
+            <Box>
+                <BannerRecomendaciones id={id}/>
             </Box>
         </Container>
     )

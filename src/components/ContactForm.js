@@ -29,12 +29,11 @@ function ContactForm(){
     return (
         <Paper className={classes.formContainer}>
             <Box className={classes.formInnerContainer}>
-                <Typography  textalign="center" variant="h4" element="h4" color="initial">
+                <Typography variant="h4" element="h4" color="primary">
                     ¡Contactanos!
                 </Typography>
                 <form>
                     <Grid container spacing={4}>
-                        <Grid></Grid>
                         <Grid item xs={12} md={6}>
                             <TextField fullWidth id="outlined-basic" label="Nombre" variant="outlined" />
                         </Grid>
@@ -45,10 +44,10 @@ function ContactForm(){
                             <TextField fullWidth id="outlined-basic" label="Email" variant="outlined" /> 
                         </Grid>
                         <Grid item xs={12}>
-                            <TextField fullWidth id="outlined-basic" label="Mensaje" variant="outlined" />
+                            <TextField fullWidth multiline={true} minRows={6} maxRows={6} id="outlined-basic" label="Mensaje" variant="outlined" />
                         </Grid>
                     </Grid>
-                    <Box display="flex" justifyContent="center">
+                    <Box textAlign="center">
                         <Button
                             className={classes.botonEnviar}
                             size="large"

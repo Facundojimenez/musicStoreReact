@@ -1,21 +1,14 @@
-import { SwipeableDrawer, makeStyles, IconButton, List, ListItem, ListItemIcon, ListItemText, Hidden } from "@material-ui/core";
+import { SwipeableDrawer, IconButton, List, ListItem, ListItemIcon, ListItemText, Hidden } from "@material-ui/core";
 import { useState } from "react";
 import MenuIcon from '@material-ui/icons/Menu';
 import StoreIcon from '@material-ui/icons/Store';
 import LocalMallIcon from '@material-ui/icons/LocalMall';
 import ContactMailIcon from '@material-ui/icons/ContactMail';
 import { Link } from "react-router-dom";
-
-const useStyles = makeStyles({
-    links:{
-        textDecoration: 'none',
-        color: "inherit"
-    }
-})
+import "../styles/links.css"
 
 function DrawerMobile(){
     const [open, setOpen] = useState(false);
-    const classes = useStyles();
     return(
         <>
             <Hidden mdUp>
@@ -29,8 +22,8 @@ function DrawerMobile(){
                 onClose={() => setOpen(false)}
                 onOpen={() => setOpen(true)}
             >
-                <List component="nav" aria-label="main mailbox folders">
-                    <Link to="/musicStoreReact" className={classes.links}>
+                <List component="nav" aria-label="Home Productos Contacto">
+                    <Link to="/musicStoreReact" className="links">
                         <ListItem button>
                             <ListItemIcon>
                                 <StoreIcon/>
@@ -38,7 +31,7 @@ function DrawerMobile(){
                             <ListItemText primary="Home" />
                         </ListItem>
                     </Link>
-                    <Link to="/musicStoreReact/productos" className={classes.links}>
+                    <Link to="/musicStoreReact/productos" className="links">
                         <ListItem button>
                             <ListItemIcon>
                                 <LocalMallIcon/>
@@ -46,7 +39,7 @@ function DrawerMobile(){
                             <ListItemText primary="Productos" />
                         </ListItem>
                     </Link>
-                    <Link  to="/musicStoreReact/contacto" className={classes.links}>
+                    <Link  to="/musicStoreReact/contacto" className="links">
                         <ListItem button>
                             <ListItemIcon>
                                 <ContactMailIcon/>
