@@ -34,18 +34,18 @@ const useStyle = makeStyles({
 
 function DetalleProducto(){
     const classes = useStyle();
-    const {id} = useParams();
+    const {idproducto} = useParams();
     const [producto, setProducto] = useState({});
     const getProducto = async () => {
         const arrProductos = await (await fetch("https://raw.githubusercontent.com/Facundojimenez/musicStoreReact/main/src/data/dataProductos.json")).json();
-        setProducto(arrProductos[id - 1]);
+        setProducto(arrProductos[idproducto - 1]); ///esto lo que hace es mostrar el producto en cuestion (el que se pasa por parametro en la url, buscandolo en el array de productos en JSON)
     };
     useEffect(() =>{
         getProducto();
-    }, [id]) ///Al poner ID lo que hace es mirar cada vez que reciba nuevas props para volver a hacer el fetch del producto
+    }, [idproducto]) ///Al poner ID lo que hace es mirar cada vez que reciba nuevas props para volver a hacer el fetch del producto
     return(
         <Container>
-            <Breadcrumbs urlBack="/musicStoreReact/productos" texto="Volver a Productos"/>
+            <Breadcrumbs urlBack="/musicStoreReact/categoria/0" texto="Volver a Productos"/>
             <Separador/>
             <Box marginTop={5}>
                 <Grid container spacing={2}>
@@ -100,7 +100,7 @@ function DetalleProducto(){
                     {producto.descripcion}
                 </Typography>
             </Box>
-            <BannerRecomendaciones idProdActual={id}/>
+            <BannerRecomendaciones idProdActual={idproducto}/>
         </Container>
     )
 }

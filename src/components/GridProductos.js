@@ -9,14 +9,15 @@ function GridProductos(props){
     }, []);
     const getProductos = async () => {
         const response = await (await fetch("https://raw.githubusercontent.com/Facundojimenez/musicStoreReact/main/src/data/dataProductos.json")).json();
-        if(props.idCategoria === undefined){
-            const arrProductos = response.filter(producto => producto.idCategoria === props.idCategoria)
+        if(props.idCategoria === "1" || props.idCategoria === "2"){ ///si el ID es de una categoria existente (1 o 2) se filtran los productos, sino se muestran todos
+            const idCategoria = parseInt(props.idCategoria)
+            const arrProductos = response.filter(producto => producto.idCategoria === idCategoria)
             setProductos(arrProductos);
+            console.log("filtrado")
         }
        else{
            setProductos(response);
        }
-       console.log(props.idCategoria)
     }
     return (
         <Box my={2}>
@@ -34,7 +35,7 @@ function GridProductos(props){
                                 categoria={producto.categoria}
                                 calificacion={producto.calificacion}
                                 habilitarBotones={true}
-                                urlLink={`productos/${producto.id}`}
+                                urlLink={`producto/${producto.id}`}
                                 urlImagen={producto.urlImagen}/>
                         </Grid>
                     )

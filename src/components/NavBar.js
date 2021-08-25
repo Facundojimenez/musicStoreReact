@@ -30,7 +30,7 @@ function NavBar(){
                                 Home
                             </Button>
                         </Link>
-                        <Link to="/musicStoreReact/productos" className="links">
+                        <Link to="/musicStoreReact/categoria/0" className="links">
                             <Button color="inherit">
                                 Productos
                             </Button>

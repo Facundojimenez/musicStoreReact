@@ -31,7 +31,7 @@ function DrawerMobile(){
                             <ListItemText primary="Home" />
                         </ListItem>
                     </Link>
-                    <Link to="/musicStoreReact/productos" className="links">
+                    <Link to="/musicStoreReact/categoria/0" className="links">
                         <ListItem button>
                             <ListItemIcon>
                                 <LocalMallIcon/>

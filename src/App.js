@@ -3,7 +3,6 @@ import Footer from './components/Footer.js'
 import { makeStyles } from '@material-ui/core';
 import Tema from './components/tema.js';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import Productos from './pages/Productos.js';
 import Contacto from './pages/Contacto.js';
 import Homepage from './pages/Home.js'
 import DetalleProducto from './pages/DetalleProducto.js';
@@ -25,16 +24,13 @@ function App() {
 					<Route exact path="/musicStoreReact">
 						<Homepage/>
 					</Route>
-					<Route exact path="/musicStoreReact/productos">
-						<Productos/>
-					</Route>
 					<Route exact path="/musicStoreReact/categoria/:id">
 						<CategoriasProductos/>
 					</Route>
 					<Route exact path="/musicStoreReact/contacto">
 						<Contacto/>
 					</Route>
-					<Route exact path="/musicStoreReact/productos/:id">
+					<Route exact path="/musicStoreReact/categoria/producto/:idproducto">
 						<DetalleProducto/>
 					</Route>
 				</Switch>

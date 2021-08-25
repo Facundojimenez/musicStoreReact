@@ -17,7 +17,7 @@ function Homepage(){
                 </Box>
                 <GridCategorias/>
                 <Separador margenY="32px"/>
-                <BannerRecomendaciones urlBase={`MusicStoreReact/productos`}/>
+                <BannerRecomendaciones urlBase={`MusicStoreReact/categoria/producto`}/>
             </Container>
             <BannerHomeBottom/>
         </>
