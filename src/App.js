@@ -7,6 +7,7 @@ import Productos from './pages/Productos.js';
 import Contacto from './pages/Contacto.js';
 import Homepage from './pages/Home.js'
 import DetalleProducto from './pages/DetalleProducto.js';
+import CategoriasProductos from './pages/CategoriasProductos.js';
 
 const useStyles = makeStyles({
 	body: {
@@ -26,6 +27,9 @@ function App() {
 					</Route>
 					<Route exact path="/musicStoreReact/productos">
 						<Productos/>
+					</Route>
+					<Route exact path="/musicStoreReact/categoria/:id">
+						<CategoriasProductos/>
 					</Route>
 					<Route exact path="/musicStoreReact/contacto">
 						<Contacto/>

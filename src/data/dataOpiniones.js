@@ -13,7 +13,7 @@ const arrOpiniones = [
     },
     {
         id: 3,
-        mensaje: "Iba a escribir algo pero me olvidé. Ah si, aguante la H.",
+        mensaje: "Los productos son de excelente calidad.",
         nombrePersona: "Dylan Fernandez",
         plataformaOrigen: "Instagram"
     }

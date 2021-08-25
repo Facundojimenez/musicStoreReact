@@ -2,6 +2,8 @@ import BannerBienvenida from "../components/BannerBienvenida";
 import BannerHomeBottom from "../components/BannerHomeBottom";
 import {Typography, Box, Container} from '@material-ui/core'
 import BannerRecomendaciones from "../components/BannerRecomendaciones";
+import GridCategorias from "../components/GridCategorias";
+import Separador from "../components/Separador";
 
 function Homepage(){
     return (
@@ -13,6 +15,8 @@ function Homepage(){
                         Homepage
                     </Typography>
                 </Box>
+                <GridCategorias/>
+                <Separador margenY="32px"/>
                 <BannerRecomendaciones urlBase={`MusicStoreReact/productos`}/>
             </Container>
             <BannerHomeBottom/>
