@@ -48,13 +48,7 @@ function ContactForm(){
                         </Grid>
                     </Grid>
                     <Box textAlign="center">
-                        <Button
-                            className={classes.botonEnviar}
-                            size="large"
-                            variant="contained"
-                            color="primary"
-                            endIcon={<SendIcon/>}
-                        >
+                        <Button className={classes.botonEnviar} size="large" variant="contained" color="primary" endIcon={<SendIcon/>}>
                             Send
                         </Button>
                     </Box>

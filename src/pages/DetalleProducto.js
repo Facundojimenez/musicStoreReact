@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { Box, Container, makeStyles, Grid, Typography, Hidden, Button } from "@material-ui/core";
-import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import Tema from "../components/tema";
 import Separador from "../components/Separador";
 import ItemCount from "../components/ItemCount";
 import "../styles/links.css"
 import BannerRecomendaciones from "../components/BannerRecomendaciones";
+import Breadcrumbs from "../components/Breadcrumbs";
 
 const useStyle = makeStyles({
     productoContainer: {
@@ -45,16 +45,7 @@ function DetalleProducto(){
     }, [id]) ///Al poner ID lo que hace es mirar cada vez que reciba nuevas props para volver a hacer el fetch del producto
     return(
         <Container>
-            <Box mt={2}>
-                <Link to="/musicStoreReact/productos" className="links">
-                    <Box display="flex" alignItems="center">
-                        <ArrowBackIcon/> 
-                        <Typography variant="h5" color="initial">
-                            Volver a Productos
-                        </Typography>
-                    </Box>
-                </Link>
-            </Box>
+            <Breadcrumbs urlBack="/musicStoreReact/productos" texto="Volver a Productos"/>
             <Separador/>
             <Box marginTop={5}>
                 <Grid container spacing={2}>
@@ -109,9 +100,7 @@ function DetalleProducto(){
                     {producto.descripcion}
                 </Typography>
             </Box>
-            <Box>
-                <BannerRecomendaciones id={id}/>
-            </Box>
+            <BannerRecomendaciones idProdActual={id}/>
         </Container>
     )
 }

@@ -96,7 +96,7 @@ function CardProducto(props){
                 </Box>
             </CardContent>
             {
-                renderizarBotones()      
+                renderizarBotones()    //renderiza (o no) los botones de Agregar al carrito y sumar cantidad (util para reutilizar CardProducto en el Banner de recomendaciones)
             }
         </Card>
     );

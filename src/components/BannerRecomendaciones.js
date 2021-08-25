@@ -19,10 +19,12 @@ function BannerRecomendaciones(props){
     const [productos, setProductos] = useState([]);
     useEffect(() => {
         getProductos(); 
-    }, []);
+    }, [props.idProdActual]);
     const getProductos = async () => {
         const response = await (await fetch("https://raw.githubusercontent.com/Facundojimenez/musicStoreReact/main/src/data/dataProductos.json")).json();
-        setProductos(response);
+        const idProd = parseInt(props.idProdActual);
+        const arrProd = response.filter(producto => producto.id !== idProd); ///Esto hace que no se muestre como recomendacion el mismo producto que estoy mostrando en product details
+        setProductos(arrProd);
     }
     return(
         <>
@@ -59,15 +61,15 @@ function BannerRecomendaciones(props){
                         return (
                             <SwiperSlide key={producto.id} >
                                 <CardProducto
-                                        id={producto.id}
-                                        marca={producto.marca}
-                                        modelo={producto.modelo}
-                                        precio={producto.precio}
-                                        stock={producto.stock}
-                                        categoria={producto.categoria}
-                                        calificacion={producto.calificacion}
-                                        urlLink={producto.id}
-                                        urlImagen={producto.urlImagen}/>
+                                    id={producto.id}
+                                    marca={producto.marca}
+                                    modelo={producto.modelo}
+                                    precio={producto.precio}
+                                    stock={producto.stock}
+                                    categoria={producto.categoria}
+                                    calificacion={producto.calificacion}
+                                    urlLink={`${props.urlBase ? props.urlBase + "/": ""}${producto.id}`} //El prefijo URLBASE se usar para poder dirigirse a Detalle Producto, especificandose desde dónde se viene (Home, Detalle producto, etc)
+                                    urlImagen={producto.urlImagen}/>
                             </SwiperSlide>
                         )
                     })
