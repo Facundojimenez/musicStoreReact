@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { Box, Container, makeStyles, Grid, Typography, Hidden, Button } from "@material-ui/core";
+import { Box, Container, makeStyles, Grid, Typography, Hidden } from "@material-ui/core";
 import Tema from "../components/tema";
 import Separador from "../components/Separador";
 import ItemCount from "../components/ItemCount";
@@ -9,17 +9,14 @@ import BannerRecomendaciones from "../components/BannerRecomendaciones";
 import Breadcrumbs from "../components/Breadcrumbs";
 
 const useStyle = makeStyles({
-    productoContainer: {
-        // padding: "16px",
-    },
     imgProducto: {
         maxHeight: "500px",
         maxWidth: "100%",
-        boxShadow: "4px 2px 8px rgba(0,0,0,0.25)"
+        boxShadow: "1px 1px 6px rgba(0,0,0,0.25)"
     },
     panelCompra:{
         [Tema.breakpoints.up('md')]: {
-            borderLeft: "2px solid #aaa", 
+            borderLeft: "1px solid #aaa", 
         },
         padding: "16px"
     },
@@ -35,13 +32,27 @@ const useStyle = makeStyles({
 function DetalleProducto(){
     const classes = useStyle();
     const {idproducto} = useParams();
+    const [cantidad, setCantidad] = useState(0);
     const [producto, setProducto] = useState({});
+    const onAdd = (cantidadElegida, setSnackBarStatusErr) =>{
+        if(cantidadElegida <= producto.stock){
+            console.log("Se agregó el producto ", producto.marca + " " + producto.modelo + " por x" + cantidadElegida)
+            setCantidad(cantidad + cantidadElegida);
+            producto.stock -= cantidadElegida;
+            
+        }
+        else{
+            console.log("no hay stock suficiente")
+            setSnackBarStatusErr(true);
+        }
+    }
     const getProducto = async () => {
         const arrProductos = await (await fetch("https://raw.githubusercontent.com/Facundojimenez/musicStoreReact/main/src/data/dataProductos.json")).json();
         setProducto(arrProductos[idproducto - 1]); ///esto lo que hace es mostrar el producto en cuestion (el que se pasa por parametro en la url, buscandolo en el array de productos en JSON)
     };
     useEffect(() =>{
         getProducto();
+        setCantidad(0);
     }, [idproducto]) ///Al poner ID lo que hace es mirar cada vez que reciba nuevas props para volver a hacer el fetch del producto
     return(
         <Container>
@@ -50,7 +61,7 @@ function DetalleProducto(){
             <Box marginTop={5}>
                 <Grid container spacing={2}>
                     <Grid item xs={12} md={6}>
-                        <Box textAlign="center" className={classes.productoContainer}>
+                        <Box textAlign="center">
                             <Typography variant="h4" color="initial">
                                 {producto.marca} {producto.modelo} 
                             </Typography>
@@ -79,14 +90,7 @@ function DetalleProducto(){
                                 </Typography>
                             </Box>
                             <Separador margenY="1rem"/>
-                            <Box display="flex" alignItems="center">
-                                <ItemCount stock={producto.stock}/>
-                                <Button variant="contained" color="primary">
-                                    <Typography variant="h6" component="h6">
-                                        Comprar
-                                    </Typography>
-                                </Button>
-                            </Box>
+                            <ItemCount stock={producto.stock} cantidadTotal={cantidad} idProducto={idproducto} onAdd={onAdd}/>
                         </Box>
                     </Grid>
                 </Grid>

@@ -1,7 +1,5 @@
-import {Card, CardMedia,CardContent, Typography, makeStyles, Button, Box, Divider, CardActions} from '@material-ui/core';
+import {Card, CardMedia,CardContent, Typography, makeStyles, Box, Divider} from '@material-ui/core';
 import {Rating} from '@material-ui/lab';
-import {ShoppingCart} from '@material-ui/icons'
-import ItemCount from "./ItemCount";
 import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles({
@@ -50,24 +48,25 @@ const useStyles = makeStyles({
 
 function CardProducto(props){
     const classes = useStyles();
-    const renderizarBotones = () => {
-        if(props.habilitarBotones){
-            return (
-                <>
-                    <Box className={classes.itemCountContainer}>
-                        <ItemCount stock={props.stock}/>
-                    </Box>
-                    <CardActions>
-                        <Button variant="contained" color="primary" fullWidth startIcon={<ShoppingCart />}>
-                            <Typography variant="body1" component="h6">
-                                Agregar al carrito
-                            </Typography>
-                        </Button>
-                    </CardActions>  
-                </>                
-            )
-        };
-    }
+
+    // const renderizarBotones = () => {
+    //     if(props.habilitarBotones){
+    //         return (
+    //             <>
+    //                 <Box className={classes.itemCountContainer}>
+    //                     <ItemCount stock={props.stock} onAdd={onAdd}/>
+    //                 </Box>
+    //                 <CardActions>
+    //                     <Button variant="contained" color="primary" fullWidth startIcon={<ShoppingCart />}>
+    //                         <Typography variant="body1" component="h6">
+    //                             Agregar al carrito
+    //                         </Typography>
+    //                     </Button>
+    //                 </CardActions>  
+    //             </>                
+    //         )
+    //     };
+    // }
     return(
         <Card className={classes.card}>
             <Link to={`${props.urlLink}`}>
@@ -89,15 +88,12 @@ function CardProducto(props){
                     <Rating name="half-rating-read" defaultValue={props.calificacion} precision={0.5} readOnly />
                 </Box>
                 <Divider variant="middle" />
-                <Box display="flex" flexDirection="column" alignItems="center" py={1}>
+                <Box display="flex" flexDirection="column" alignItems="center" pt={1}>
                     <Typography variant="h5" component="h6">
                         ${props.precio}
                     </Typography>
                 </Box>
             </CardContent>
-            {
-                renderizarBotones()    //renderiza (o no) los botones de Agregar al carrito y sumar cantidad (util para reutilizar CardProducto en el Banner de recomendaciones)
-            }
         </Card>
     );
 }

@@ -12,7 +12,8 @@ const useStyles = makeStyles({
         justifyContent: "space-evenly",
         alignItems: "center",
         backgroundColor: Tema.palette.common.white,
-        minHeight: "450px"
+        minHeight: "450px",
+        boxShadow: "1px 1px 6px rgba(0,0,0,0.25)"
     },
     imgContainer:{
         flexGrow: 1,

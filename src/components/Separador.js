@@ -9,7 +9,7 @@ function Separador(props){
         color = props.color
     }
     return(
-        <div style={{"borderTop": `2px solid ${color}`, "margin": `${margenY} 0`} }></div>
+        <div style={{"borderTop": `1px solid ${color}`, "margin": `${margenY} 0`} }></div>
     )
 }
 
