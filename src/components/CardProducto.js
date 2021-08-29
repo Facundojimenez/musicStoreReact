@@ -48,25 +48,6 @@ const useStyles = makeStyles({
 
 function CardProducto(props){
     const classes = useStyles();
-
-    // const renderizarBotones = () => {
-    //     if(props.habilitarBotones){
-    //         return (
-    //             <>
-    //                 <Box className={classes.itemCountContainer}>
-    //                     <ItemCount stock={props.stock} onAdd={onAdd}/>
-    //                 </Box>
-    //                 <CardActions>
-    //                     <Button variant="contained" color="primary" fullWidth startIcon={<ShoppingCart />}>
-    //                         <Typography variant="body1" component="h6">
-    //                             Agregar al carrito
-    //                         </Typography>
-    //                     </Button>
-    //                 </CardActions>  
-    //             </>                
-    //         )
-    //     };
-    // }
     return(
         <Card className={classes.card}>
             <Link to={`${props.urlLink}`}>
