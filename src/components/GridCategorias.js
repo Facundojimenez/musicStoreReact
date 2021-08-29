@@ -33,7 +33,7 @@ function GridCategorias(){
         <>
             <Grid container spacing={2}>
                 <Grid item xs={12} sm={6}>
-                    <Link to="MusicStoreReact/categoria/1" className={`links ${classes.categoriaContainer}`}>
+                    <Link to="musicStoreReact/categoria/1" className={`links ${classes.categoriaContainer}`}>
                         <Box className={classes.imgContainer}>
                             <img className={classes.categoriaImg} alt="strat" src={imgGuitarras}/>
                         </Box>
@@ -46,7 +46,7 @@ function GridCategorias(){
                     </Link>
                 </Grid>
                 <Grid item xs={12} sm={6}>
-                    <Link to="MusicStoreReact/categoria/2" className={`links ${classes.categoriaContainer}`}>
+                    <Link to="musicStoreReact/categoria/2" className={`links ${classes.categoriaContainer}`}>
                         <Box className={classes.imgContainer}>
                             <img className={classes.categoriaImg} alt="ac30" src={imgAmplificadores}/>
                         </Box>
