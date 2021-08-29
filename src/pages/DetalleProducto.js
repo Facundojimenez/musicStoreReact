@@ -7,6 +7,8 @@ import ItemCount from "../components/ItemCount";
 import "../styles/links.css"
 import BannerRecomendaciones from "../components/BannerRecomendaciones";
 import Breadcrumbs from "../components/Breadcrumbs";
+import { useContext } from "react";
+import { CartContext } from "../context/CartContext";
 
 const useStyle = makeStyles({
     imgProducto: {
@@ -28,31 +30,25 @@ const useStyle = makeStyles({
     }
 })
 
-
 function DetalleProducto(){
     const classes = useStyle();
     const {idproducto} = useParams();
-    const [cantidad, setCantidad] = useState(0);
     const [producto, setProducto] = useState({});
-    const onAdd = (cantidadElegida, setSnackBarStatusErr) =>{
-        if(cantidadElegida <= producto.stock){
-            console.log("Se agregó el producto ", producto.marca + " " + producto.modelo + " por x" + cantidadElegida)
-            setCantidad(cantidad + cantidadElegida);
-            producto.stock -= cantidadElegida;
-            
+    const {agregarAlCarrito, calcularStockDisponible} = useContext(CartContext);
+    const onAdd = (nuevaLinea, setStockDisponible, setSnackBarStatusError) =>{ //Agrega un producto y actualiza el stock. Si no hay stock dispara un aviso
+        if(!agregarAlCarrito(nuevaLinea)){
+            setSnackBarStatusError(true)
         }
         else{
-            console.log("no hay stock suficiente")
-            setSnackBarStatusErr(true);
+            setStockDisponible(calcularStockDisponible(nuevaLinea.producto))
         }
     }
-    const getProducto = async () => {
+    const getProducto = async (idProd) => {
         const arrProductos = await (await fetch("https://raw.githubusercontent.com/Facundojimenez/musicStoreReact/main/src/data/dataProductos.json")).json();
-        setProducto(arrProductos[idproducto - 1]); ///esto lo que hace es mostrar el producto en cuestion (el que se pasa por parametro en la url, buscandolo en el array de productos en JSON)
+        setProducto(arrProductos[idProd - 1]); ///esto lo que hace es mostrar el producto en cuestion (el que se pasa por parametro en la url, buscandolo en el array de productos en JSON)
     };
     useEffect(() =>{
-        getProducto();
-        setCantidad(0);
+        getProducto(idproducto);
     }, [idproducto]) ///Al poner ID lo que hace es mirar cada vez que reciba nuevas props para volver a hacer el fetch del producto
     return(
         <Container>
@@ -90,7 +86,7 @@ function DetalleProducto(){
                                 </Typography>
                             </Box>
                             <Separador margenY="1rem"/>
-                            <ItemCount stock={producto.stock} cantidadTotal={cantidad} idProducto={idproducto} onAdd={onAdd}/>
+                            <ItemCount producto={producto} onAdd={onAdd}/>
                         </Box>
                     </Grid>
                 </Grid>

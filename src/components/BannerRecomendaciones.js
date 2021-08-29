@@ -18,12 +18,11 @@ SwiperCore.use([Navigation]);
 function BannerRecomendaciones(props){
     const [productos, setProductos] = useState([]);
     useEffect(() => {
-        getProductos(); 
+        getProductos(parseInt(props.idProdActual)); 
     }, [props.idProdActual]);
-    const getProductos = async () => {
+    const getProductos = async (idProdActual) => {
         const response = await (await fetch("https://raw.githubusercontent.com/Facundojimenez/musicStoreReact/main/src/data/dataProductos.json")).json();
-        const idProd = parseInt(props.idProdActual);
-        const arrProd = response.filter(producto => producto.id !== idProd); ///Esto hace que no se muestre como recomendacion el mismo producto que estoy mostrando en product details
+        const arrProd = response.filter(producto => producto.id !== idProdActual); ///Esto hace que no se muestre como recomendacion el mismo producto que estoy mostrando en product details
         setProductos(arrProd);
     }
     return(

@@ -5,12 +5,11 @@ import { useEffect, useState } from "react";
 function GridProductos(props){
     const [productos, setProductos] = useState([]);
     useEffect(() => {
-        getProductos(); 
-    }, []);
-    const getProductos = async () => {
+        getProductos(parseInt(props.idCategoria)); 
+    }, [props.idCategoria]);
+    const getProductos = async (idCategoria) => {
         const response = await (await fetch("https://raw.githubusercontent.com/Facundojimenez/musicStoreReact/main/src/data/dataProductos.json")).json();
-        if(props.idCategoria === "1" || props.idCategoria === "2"){ ///si el ID es de una categoria existente (1 o 2) se filtran los productos, sino se muestran todos
-            const idCategoria = parseInt(props.idCategoria)
+        if(idCategoria === "1" || idCategoria === "2"){ ///si el ID es de una categoria existente (1 o 2) se filtran los productos, sino se muestran todos
             const arrProductos = response.filter(producto => producto.idCategoria === idCategoria)
             setProductos(arrProductos);
             console.log("filtrado")

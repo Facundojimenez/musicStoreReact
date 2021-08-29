@@ -1,10 +1,11 @@
 import AddIcon from '@material-ui/icons/Add';
 import RemoveIcon from '@material-ui/icons/Remove';
 import { Box, IconButton, makeStyles, Typography, Button } from '@material-ui/core';
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import Snackbar from '@material-ui/core/Snackbar';
 import MuiAlert from '@material-ui/lab/Alert';
 import { ShoppingCart } from '@material-ui/icons';
+import { CartContext } from '../context/CartContext';
 
 const useStyle = makeStyles({
     contenedor: {
@@ -23,9 +24,12 @@ function ItemCount(props){
     const [cantidadElegida, setCantidad] = useState(1);
     const [snackBarStatusWarning, setSnackBarStatusWarning] = useState(false);
     const [snackBarStatusError, setSnackBarStatusError] = useState(false);
+    const { carritoVacio, calcularStockDisponible } = useContext(CartContext);
+    const [stockDisponible, setStockDisponible] = useState(1);
     useEffect(() =>{
         setCantidad(1);
-    }, [props.idProducto])
+        setStockDisponible(calcularStockDisponible(props.producto))
+    }, [props.producto])
     const handleCloseWarning = (reason) => {
         if (reason === 'clickaway') {
           return;
@@ -38,16 +42,16 @@ function ItemCount(props){
         }
         setSnackBarStatusError(false);
     };
-    ///funciones de agregado o quitado de cantidad de unidades
+    ///funciones de agregado o quitado de cantidad de unidades al contador
     const sumarCantidad = () => {
-        if(cantidadElegida < props.stock){
+        if(cantidadElegida < stockDisponible){
             setCantidad(cantidadElegida + 1);
         }
         else{
             setSnackBarStatusWarning(true)
         }
     }
-    const restarCantidad = () =>{
+    const restarCantidad = () => {
         if(cantidadElegida > 1){
             setCantidad(cantidadElegida - 1);
         }
@@ -66,23 +70,20 @@ function ItemCount(props){
                 <IconButton onClick={() => sumarCantidad()}>
                     <AddIcon/>
                 </IconButton>
-                <Button onClick={() => props.onAdd(cantidadElegida, setSnackBarStatusError)} variant="contained" color="primary" startIcon={<ShoppingCart />}>
+                <Button onClick={() => props.onAdd({producto: props.producto, cantidad: cantidadElegida}, setStockDisponible, setSnackBarStatusError)} variant="contained" color="primary" startIcon={<ShoppingCart />}>
                     <Typography variant="h6" component="h6">
                         Agregar al carrito
                     </Typography>
                 </Button>
             </Box>
+            <Typography variant="h5" component="h5">
+                stock disponible: {stockDisponible} (a modo de desarrollo)
+            </Typography>
             <Box my={3}>
-                <Button variant="contained" fullWidth disabled={props.cantidadTotal === 0 ? true : false}>
+                <Button variant="contained" fullWidth disabled={carritoVacio() ? true : false}>
                     Finalizar compra
                 </Button>
             </Box>
-            <Typography variant="h5" component="h5">
-                unidades en el carrito: {props.cantidadTotal}
-            </Typography>
-            <Typography variant="h5" component="h5">
-                stock disponible: {props.stock} (a modo de desarrollo)
-            </Typography>
             <Snackbar
                 open={snackBarStatusWarning}
                 autoHideDuration={5000}
@@ -93,7 +94,7 @@ function ItemCount(props){
                 }}
             >
                 <MuiAlert variant="filled" onClose={handleCloseWarning} severity="warning">
-                    {`El stock disponible  del artículo es: ${props.stock} unidades` }
+                    {`El stock disponible  del artículo es: ${stockDisponible} unidades` }
                 </MuiAlert>
             </Snackbar>
             <Snackbar
