@@ -9,7 +9,7 @@ function GridProductos(props){
     }, [props.idCategoria]);
     const getProductos = async (idCategoria) => {
         const response = await (await fetch("https://raw.githubusercontent.com/Facundojimenez/musicStoreReact/main/src/data/dataProductos.json")).json();
-        if(idCategoria === "1" || idCategoria === "2"){ ///si el ID es de una categoria existente (1 o 2) se filtran los productos, sino se muestran todos
+        if(idCategoria === 1 || idCategoria === 2){ ///si el ID es de una categoria existente (1 o 2) se filtran los productos, sino se muestran todos
             const arrProductos = response.filter(producto => producto.idCategoria === idCategoria)
             setProductos(arrProductos);
         }
