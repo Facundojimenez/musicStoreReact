@@ -7,8 +7,6 @@ import ItemCount from "../components/ItemCount";
 import "../styles/links.css"
 import BannerRecomendaciones from "../components/BannerRecomendaciones";
 import Breadcrumbs from "../components/Breadcrumbs";
-import { useContext } from "react";
-import { CartContext } from "../context/CartContext";
 
 const useStyle = makeStyles({
     imgProducto: {
@@ -34,15 +32,6 @@ function DetalleProducto(){
     const classes = useStyle();
     const {idproducto} = useParams();
     const [producto, setProducto] = useState({});
-    const {agregarAlCarrito, calcularStockDisponible} = useContext(CartContext);
-    const onAdd = (nuevaLinea, setStockDisponible, setSnackBarStatusError) =>{ //Agrega un producto y actualiza el stock. Si no hay stock dispara un aviso
-        if(!agregarAlCarrito(nuevaLinea)){
-            setSnackBarStatusError(true)
-        }
-        else{
-            setStockDisponible(calcularStockDisponible(nuevaLinea.producto))
-        }
-    }
     const getProducto = async (idProd) => {
         const arrProductos = await (await fetch("https://raw.githubusercontent.com/Facundojimenez/musicStoreReact/main/src/data/dataProductos.json")).json();
         setProducto(arrProductos[idProd - 1]); ///esto lo que hace es mostrar el producto en cuestion (el que se pasa por parametro en la url, buscandolo en el array de productos en JSON)
@@ -86,7 +75,7 @@ function DetalleProducto(){
                                 </Typography>
                             </Box>
                             <Separador margenY="1rem"/>
-                            <ItemCount producto={producto} onAdd={onAdd}/>
+                            <ItemCount producto={producto}/>
                         </Box>
                     </Grid>
                 </Grid>
