@@ -8,7 +8,7 @@ import Homepage from './pages/Home.js'
 import DetalleProducto from './pages/DetalleProducto.js';
 import CategoriasProductos from './pages/CategoriasProductos.js';
 import { CartProvider } from './context/CartContext.js';
-import Carrito from './pages/Cart.js';
+import Cart from './pages/Cart.js';
 
 const useStyles = makeStyles({
 	body: {
@@ -37,7 +37,7 @@ function App() {
 							<DetalleProducto/>
 						</Route>
 						<Route exact path="/musicStoreReact/cart">
-							<Carrito/>
+							<Cart/>
 						</Route>
 					</Switch>
 					<Footer/>

@@ -15,7 +15,7 @@ const useStyle = makeStyles({
 
 function ItemCount(props){
     const classes = useStyle();
-    const { carritoVacio, calcularStockDisponible, arrLineaProductos } = useContext(CartContext);
+    const { calcularStockDisponible, arrLineaProductos, unidadesTotales, setUnidadesTotales } = useContext(CartContext);
     const [cantidadElegida, setCantidad] = useState(0);
     const [snackBarStatusWarning, setSnackBarStatusWarning] = useState(false);
     const [stockDisponible, setStockDisponible] = useState(1);
@@ -23,10 +23,7 @@ function ItemCount(props){
         const indiceLinea = arrLineaProductos.findIndex(lineaProducto => lineaProducto.producto.id === props.producto.id);
         setStockDisponible(calcularStockDisponible(props.producto));
         setCantidad(indiceLinea !== -1 ? arrLineaProductos[indiceLinea].cantidad : 0)
-        if(arrLineaProductos){
-            console.log("arrLineaProductos[indiceLinea]: ", arrLineaProductos[indiceLinea]);
-        }
-    }, [props.producto])
+    }, [props.producto, arrLineaProductos, calcularStockDisponible])
     const handleCloseWarning = (reason) => {
         if (reason === 'clickaway') {
           return;
@@ -39,7 +36,6 @@ function ItemCount(props){
         if(stockDisponible > 0){
             if(indiceLinea !== -1){
                 arrLineaProductos[indiceLinea].cantidad++;
-                console.log(arrLineaProductos[indiceLinea].cantidad)
             }
             else{
                 arrLineaProductos.push({producto: props.producto, cantidad: 1})
@@ -48,7 +44,8 @@ function ItemCount(props){
                 props.actualizarPadre(cantidadElegida + 1)
             }
             setCantidad(cantidadElegida + 1);
-            setStockDisponible(stockDisponible - 1)
+            setStockDisponible(stockDisponible - 1);
+            setUnidadesTotales(unidadesTotales + 1);
         }
         else{
             setSnackBarStatusWarning(true)
@@ -67,6 +64,7 @@ function ItemCount(props){
                 props.actualizarPadre(cantidadElegida - 1)
             }
             setCantidad(cantidadElegida - 1);
+            setUnidadesTotales(unidadesTotales - 1);
             setStockDisponible(stockDisponible + 1);
         }
         console.log(arrLineaProductos)
@@ -86,9 +84,6 @@ function ItemCount(props){
                     <AddIcon/>
                 </IconButton>
             </Box>
-            {/* <Typography variant="h5" component="h5">
-                stock disponible: {stockDisponible} (a modo de desarrollo)
-            </Typography> */}
             <Snackbar
                 open={snackBarStatusWarning}
                 autoHideDuration={5000}
