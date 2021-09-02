@@ -67,7 +67,7 @@ function BannerRecomendaciones(props){
                                     stock={producto.stock}
                                     categoria={producto.categoria}
                                     calificacion={producto.calificacion}
-                                    urlLink={`${props.urlBase ? props.urlBase + "/": ""}${producto.id}`} //El prefijo URLBASE se usar para poder dirigirse a Detalle Producto, especificandose desde dónde se viene (Home, Detalle producto, etc)
+                                    urlLink={`/musicStoreReact/categoria/producto/${producto.id}`} //El prefijo URLBASE se usar para poder dirigirse a Detalle Producto, especificandose desde dónde se viene (Home, Detalle producto, etc)
                                     urlImagen={producto.urlImagen}/>
                             </SwiperSlide>
                         )

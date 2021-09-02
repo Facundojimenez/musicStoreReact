@@ -50,7 +50,7 @@ function CardProducto(props){
     const classes = useStyles();
     return(
         <Card className={classes.card}>
-            <Link to={`${props.urlLink}`}>
+            <Link to={`/musicStoreReact/categoria/producto/${props.id}`}>
                 <Box className={classes.linkContainer}>
                     <CardMedia className={classes.cardFoto} component="img" image={props.urlImagen} title={` ${props.categoria} ${props.marca} ${props.modelo}`}/>
                     <Typography variant="h5" component="h5" className={classes.overlay}>

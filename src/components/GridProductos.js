@@ -32,7 +32,6 @@ function GridProductos(props){
                                 stock={producto.stock}
                                 categoria={producto.categoria}
                                 calificacion={producto.calificacion}
-                                urlLink={`producto/${producto.id}`}
                                 urlImagen={producto.urlImagen}/>
                         </Grid>
                     )

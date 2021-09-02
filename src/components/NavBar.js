@@ -5,13 +5,16 @@ import CartWidget from './CartWidget';
 import DrawerMobile from './DrawerMobile';
 import { Link } from 'react-router-dom';
 import "../styles/links.css"
+import { useContext } from 'react';
+import CartContext from '../context/CartContext';
 
 const useStyle = makeStyles({
-    espacioAppBar: Tema.mixins.toolbar,
+    espacioAppBar: Tema.mixins.toolbar
 })
 
 function NavBar(){
     const classes = useStyle();
+    const {unidadesTotales} = useContext(CartContext);
     return (
         <ThemeProvider theme={Tema}>
             <AppBar position="fixed">
@@ -41,7 +44,12 @@ function NavBar(){
                             </Button>
                         </Link>
                     </Hidden>
-                    <CartWidget/>
+                    <Link to="/musicStoreReact/cart" className="links" style={unidadesTotales <= 0 ? {display: "none"} : {}}>
+                        <CartWidget/>
+                        <Typography variant="h6" display="inline">
+                            {unidadesTotales}
+                        </Typography>
+                    </Link>
                 </Toolbar>
             </AppBar>
             <div className={classes.espacioAppBar}></div>
