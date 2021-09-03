@@ -1,22 +1,29 @@
 import CardProducto from "./CardProducto";
 import {Grid, Box} from "@material-ui/core"
 import { useEffect, useState } from "react";
+import { getDocs,  collection, query, where} from '@firebase/firestore';
+import { getData } from "../firebase";
 
 function GridProductos(props){
     const [productos, setProductos] = useState([]);
     useEffect(() => {
+        const getProductos = async (idCategoria) => {
+             const productosCollection = collection(getData(), 'productos');
+             let arrProductos = [];
+             if(idCategoria === 1 || idCategoria === 2){ ///si el ID es de una categoria existente (1 o 2) se filtran los productos, sino se muestran todos
+                 const queryCategoria = query(productosCollection, where("idCategoria", "==", idCategoria));
+                 const productosCategoriaSnapshot = await getDocs(queryCategoria);
+                 arrProductos = productosCategoriaSnapshot.docs.map(doc => ({id: doc.id, ...doc.data()}));
+             }
+             else{
+                 const productosSnapshot = await getDocs(productosCollection);
+                 arrProductos = productosSnapshot.docs.map(doc => ({id: doc.id, ...doc.data()}));
+             }
+             setProductos(arrProductos);
+        };
         getProductos(parseInt(props.idCategoria)); 
     }, [props.idCategoria]);
-    const getProductos = async (idCategoria) => {
-        const response = await (await fetch("https://raw.githubusercontent.com/Facundojimenez/musicStoreReact/main/src/data/dataProductos.json")).json();
-        if(idCategoria === 1 || idCategoria === 2){ ///si el ID es de una categoria existente (1 o 2) se filtran los productos, sino se muestran todos
-            const arrProductos = response.filter(producto => producto.idCategoria === idCategoria)
-            setProductos(arrProductos);
-        }
-       else{
-           setProductos(response);
-       }
-    }
+
     return (
         <Box my={2}>
             <Grid container spacing={2}>

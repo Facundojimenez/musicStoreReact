@@ -10,6 +10,8 @@ import Breadcrumbs from "../components/Breadcrumbs";
 import ShoppingCart from "@material-ui/icons/ShoppingCart";
 import { Link } from "react-router-dom";
 import CartContext from "../context/CartContext";
+import {doc, getDoc} from '@firebase/firestore'
+import { getData } from "../firebase";
 
 const useStyle = makeStyles({
     imgProducto: {
@@ -36,11 +38,12 @@ function DetalleProducto(){
     const {idproducto} = useParams();
     const [producto, setProducto] = useState({});
     const {unidadesTotales} = useContext(CartContext);
-    const getProducto = async (idProd) => {
-        const arrProductos = await (await fetch("https://raw.githubusercontent.com/Facundojimenez/musicStoreReact/main/src/data/dataProductos.json")).json();
-        setProducto(arrProductos[idProd - 1]); ///esto lo que hace es mostrar el producto en cuestion (el que se pasa por parametro en la url, buscandolo en el array de productos en JSON)
-    };
     useEffect(() =>{
+        const getProducto = async (idProd) => {
+            const productoRef = doc(getData(), 'productos', idproducto.toString()); ///busco el producto por el ID (debe ser una string)
+            const productoSnap = await getDoc(productoRef);
+            setProducto({id: parseInt(idProd), ...productoSnap.data()});
+        };
         getProducto(idproducto);
     }, [idproducto]) ///Al poner ID lo que hace es mirar cada vez que reciba nuevas props para volver a hacer el fetch del producto
     return(

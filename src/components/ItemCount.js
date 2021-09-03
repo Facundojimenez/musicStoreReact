@@ -1,10 +1,10 @@
-import AddIcon from '@material-ui/icons/Add';
-import RemoveIcon from '@material-ui/icons/Remove';
 import { Box, IconButton, makeStyles, Typography } from '@material-ui/core';
 import { useContext, useEffect, useState } from 'react';
 import Snackbar from '@material-ui/core/Snackbar';
 import MuiAlert from '@material-ui/lab/Alert';
 import CartContext from '../context/CartContext';
+import AddIcon from '@material-ui/icons/Add';
+import RemoveIcon from '@material-ui/icons/Remove';
 
 const useStyle = makeStyles({
     cantidadOutput: {
@@ -38,17 +38,17 @@ function ItemCount(props){
                 arrLineaProductos[indiceLinea].cantidad++;
             }
             else{
-                arrLineaProductos.push({producto: props.producto, cantidad: 1})
+                arrLineaProductos.push({producto: props.producto, cantidad: 1});
             }
             if(props.actualizarPadre){
-                props.actualizarPadre(cantidadElegida + 1)
+                props.actualizarPadre(cantidadElegida + 1);
             }
             setCantidad(cantidadElegida + 1);
             setStockDisponible(stockDisponible - 1);
             setUnidadesTotales(unidadesTotales + 1);
         }
         else{
-            setSnackBarStatusWarning(true)
+            setSnackBarStatusWarning(true);
         }
     }
     const restarCantidad = () => {
@@ -67,7 +67,6 @@ function ItemCount(props){
             setUnidadesTotales(unidadesTotales - 1);
             setStockDisponible(stockDisponible + 1);
         }
-        console.log(arrLineaProductos)
     }
     return (
         <>
