@@ -9,7 +9,27 @@ import { useContext } from 'react';
 import CartContext from '../context/CartContext';
 
 const useStyle = makeStyles({
-    espacioAppBar: Tema.mixins.toolbar
+    espacioAppBar: Tema.mixins.toolbar,
+    cartIcon: {
+        display: "inline-block",
+        position: "relative"
+    },
+    cartQuantity: {
+        position: "absolute",
+        display: "flex",
+        fontWeight: 600,
+        fontSize: "1.2rem",
+        alignItems: "center",
+        justifyContent: "center",
+        color: Tema.palette.primary.main,
+        backgroundColor: Tema.palette.common.white,
+        top: "50%",
+        left: "75%",
+        minWidth: "1.2rem",
+        padding: "0.1rem",
+        height: "1.2rem",
+        borderRadius: "50%"
+    }
 })
 
 function NavBar(){
@@ -45,10 +65,12 @@ function NavBar(){
                         </Link>
                     </Hidden>
                     <Link to="/musicStoreReact/cart" className="links" style={unidadesTotales <= 0 ? {display: "none"} : {}}>
-                        <CartWidget/>
-                        <Typography variant="h6" display="inline">
-                            {unidadesTotales}
-                        </Typography>
+                        <Box className={classes.cartIcon}>
+                            <CartWidget/>
+                            <Typography variant="h6" display="inline" className={classes.cartQuantity}>
+                                {unidadesTotales}
+                            </Typography>
+                        </Box>
                     </Link>
                 </Toolbar>
             </AppBar>
