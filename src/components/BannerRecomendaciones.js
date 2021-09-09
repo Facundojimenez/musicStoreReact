@@ -11,7 +11,7 @@ import "swiper/swiper.min.css";
 import "swiper/components/navigation/navigation.min.css"
 import '../styles/bannerSlider.css';
 import Typography from '@material-ui/core/Typography'
-import {getData} from '../firebase';
+import {getDatabase} from '../firebase';
 import {collection, getDocs} from '@firebase/firestore';
 
 SwiperCore.use([Navigation]);
@@ -21,7 +21,7 @@ function BannerRecomendaciones(props){
     const [productos, setProductos] = useState([]);
     useEffect(() => {
         const getProductos = async (idProdActual) => {
-            const productosCollection = collection(getData(), 'productos');
+            const productosCollection = collection(getDatabase(), 'productos');
             const productosSnapshot = await getDocs(productosCollection);
             const arrProductos = productosSnapshot.docs.map(doc => ({id: doc.id, ...doc.data()})).filter(producto => producto.id !== idProdActual.toString())
             setProductos(arrProductos);

@@ -11,7 +11,7 @@ import ShoppingCart from "@material-ui/icons/ShoppingCart";
 import { Link } from "react-router-dom";
 import CartContext from "../context/CartContext";
 import {doc, getDoc} from '@firebase/firestore'
-import { getData } from "../firebase";
+import { getDatabase } from "../firebase";
 
 const useStyle = makeStyles({
     imgProducto: {
@@ -40,7 +40,7 @@ function DetalleProducto(){
     const {unidadesTotales} = useContext(CartContext);
     useEffect(() =>{
         const getProducto = async (idProd) => {
-            const productoRef = doc(getData(), 'productos', idproducto.toString()); ///busco el producto por el ID (debe ser una string)
+            const productoRef = doc(getDatabase(), 'productos', idproducto.toString()); ///busco el producto por el ID (debe ser una string)
             const productoSnap = await getDoc(productoRef);
             setProducto({id: parseInt(idProd), ...productoSnap.data()});
         };
@@ -84,13 +84,13 @@ function DetalleProducto(){
                             <Separador margenY="1rem"/>
                             <Box display="flex" alignItems="center">
                                 <ItemCount producto={producto}/>
-                                <Button disabled={unidadesTotales === 0 ? true : false} variant="contained" color="primary" startIcon={<ShoppingCart />}>
-                                    <Link to="/musicStoreReact/cart" className="links">
+                                <Link to="/musicStoreReact/cart" className="links">
+                                    <Button disabled={unidadesTotales === 0 ? true : false} variant="contained" color="primary" startIcon={<ShoppingCart />}>
                                         <Typography variant="h6" component="h6">
                                             Ir al carrito
                                         </Typography>
-                                    </Link>
-                                </Button>
+                                    </Button>
+                                </Link>
                             </Box>
                         </Box>
                     </Grid>

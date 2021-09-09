@@ -5,6 +5,7 @@ import CartContext from "../context/CartContext";
 import { Link } from "react-router-dom";
 import "../styles/links.css"
 import Tema from "../components/tema";
+import OrderFormButtom from "../components/OrderFormButton";
 
 const useStyles = makeStyles({
     carritoVacioContainer:{
@@ -54,6 +55,7 @@ function Cart(){
                         <Typography variant="h5">
                             Importe total: ${calcularTotal()}
                         </Typography>
+                        <OrderFormButtom/>
                     </Box>
                 </Box>
             </Container>

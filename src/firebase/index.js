@@ -24,4 +24,4 @@ const app = initializeApp(firebaseConfig);
 
 
 //getData devuelve la conexión con firestore a mi app
-export const getData = () => getFirestore(app);
+export const getDatabase = () => getFirestore(app);

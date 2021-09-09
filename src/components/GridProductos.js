@@ -2,13 +2,13 @@ import CardProducto from "./CardProducto";
 import {Grid, Box} from "@material-ui/core"
 import { useEffect, useState } from "react";
 import { getDocs,  collection, query, where} from '@firebase/firestore';
-import { getData } from "../firebase";
+import { getDatabase } from "../firebase";
 
 function GridProductos(props){
     const [productos, setProductos] = useState([]);
     useEffect(() => {
         const getProductos = async (idCategoria) => {
-             const productosCollection = collection(getData(), 'productos');
+             const productosCollection = collection(getDatabase(), 'productos');
              let arrProductos = [];
              if(idCategoria === 1 || idCategoria === 2){ ///si el ID es de una categoria existente (1 o 2) se filtran los productos, sino se muestran todos
                  const queryCategoria = query(productosCollection, where("idCategoria", "==", idCategoria));
