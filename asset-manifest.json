@@ -1,19 +1,19 @@
 {
   "files": {
     "main.css": "/musicStoreReact/static/css/main.8321a763.chunk.css",
-    "main.js": "/musicStoreReact/static/js/main.49272048.chunk.js",
-    "main.js.map": "/musicStoreReact/static/js/main.49272048.chunk.js.map",
-    "runtime-main.js": "/musicStoreReact/static/js/runtime-main.29b581e0.js",
-    "runtime-main.js.map": "/musicStoreReact/static/js/runtime-main.29b581e0.js.map",
+    "main.js": "/musicStoreReact/static/js/main.0e62b365.chunk.js",
+    "main.js.map": "/musicStoreReact/static/js/main.0e62b365.chunk.js.map",
+    "runtime-main.js": "/musicStoreReact/static/js/runtime-main.86ce7cc9.js",
+    "runtime-main.js.map": "/musicStoreReact/static/js/runtime-main.86ce7cc9.js.map",
     "static/css/2.b5bba51d.chunk.css": "/musicStoreReact/static/css/2.b5bba51d.chunk.css",
-    "static/js/2.cdc38046.chunk.js": "/musicStoreReact/static/js/2.cdc38046.chunk.js",
-    "static/js/2.cdc38046.chunk.js.map": "/musicStoreReact/static/js/2.cdc38046.chunk.js.map",
-    "static/js/3.b417e9f2.chunk.js": "/musicStoreReact/static/js/3.b417e9f2.chunk.js",
-    "static/js/3.b417e9f2.chunk.js.map": "/musicStoreReact/static/js/3.b417e9f2.chunk.js.map",
+    "static/js/2.5339d533.chunk.js": "/musicStoreReact/static/js/2.5339d533.chunk.js",
+    "static/js/2.5339d533.chunk.js.map": "/musicStoreReact/static/js/2.5339d533.chunk.js.map",
+    "static/js/3.61015d53.chunk.js": "/musicStoreReact/static/js/3.61015d53.chunk.js",
+    "static/js/3.61015d53.chunk.js.map": "/musicStoreReact/static/js/3.61015d53.chunk.js.map",
     "index.html": "/musicStoreReact/index.html",
     "static/css/2.b5bba51d.chunk.css.map": "/musicStoreReact/static/css/2.b5bba51d.chunk.css.map",
     "static/css/main.8321a763.chunk.css.map": "/musicStoreReact/static/css/main.8321a763.chunk.css.map",
-    "static/js/2.cdc38046.chunk.js.LICENSE.txt": "/musicStoreReact/static/js/2.cdc38046.chunk.js.LICENSE.txt",
+    "static/js/2.5339d533.chunk.js.LICENSE.txt": "/musicStoreReact/static/js/2.5339d533.chunk.js.LICENSE.txt",
     "static/media/bannerBienvenida1.jpeg": "/musicStoreReact/static/media/bannerBienvenida1.ff178040.jpeg",
     "static/media/bannerBienvenida2.jpeg": "/musicStoreReact/static/media/bannerBienvenida2.3f74198e.jpeg",
     "static/media/bannerBienvenida3.jpeg": "/musicStoreReact/static/media/bannerBienvenida3.1b178e2d.jpeg",
@@ -22,10 +22,10 @@
     "static/media/categoriaGuitarras.5d46fdb2.jpg": "/musicStoreReact/static/media/categoriaGuitarras.5d46fdb2.jpg"
   },
   "entrypoints": [
-    "static/js/runtime-main.29b581e0.js",
+    "static/js/runtime-main.86ce7cc9.js",
     "static/css/2.b5bba51d.chunk.css",
-    "static/js/2.cdc38046.chunk.js",
+    "static/js/2.5339d533.chunk.js",
     "static/css/main.8321a763.chunk.css",
-    "static/js/main.49272048.chunk.js"
+    "static/js/main.0e62b365.chunk.js"
   ]
 }
