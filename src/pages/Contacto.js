@@ -3,6 +3,7 @@ import ContactForm from "../components/ContactForm";
 
 const useStyles = makeStyles({
 	contactFormContainer:{
+		minHeight: "80vh",
 		display: "flex",
 		justifyContent: "center",
 		padding: "48px 16px",

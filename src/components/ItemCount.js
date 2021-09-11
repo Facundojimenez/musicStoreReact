@@ -5,6 +5,7 @@ import MuiAlert from '@material-ui/lab/Alert';
 import CartContext from '../context/CartContext';
 import AddIcon from '@material-ui/icons/Add';
 import RemoveIcon from '@material-ui/icons/Remove';
+import useLocalStorage from '../localStorage/useLocalStorage';
 
 const useStyle = makeStyles({
     cantidadOutput: {
@@ -15,15 +16,15 @@ const useStyle = makeStyles({
 
 function ItemCount(props){
     const classes = useStyle();
-    const { calcularStockDisponible, arrLineaProductos, unidadesTotales, setUnidadesTotales } = useContext(CartContext);
-    const [cantidadElegida, setCantidad] = useState(0);
+    const { calcularStockDisponible, arrLineaProductos, unidadesTotales, setUnidadesTotales, setArrLineaProductos } = useContext(CartContext);
+    const [cantidadElegida, setCantidad] = useLocalStorage("cantidadElegida", 0);
     const [snackBarStatusWarning, setSnackBarStatusWarning] = useState(false);
     const [stockDisponible, setStockDisponible] = useState(1);
     useEffect(() =>{
         const indiceLinea = arrLineaProductos.findIndex(lineaProducto => lineaProducto.producto.id === props.producto.id);
         setStockDisponible(calcularStockDisponible(props.producto));
         setCantidad(indiceLinea !== -1 ? arrLineaProductos[indiceLinea].cantidad : 0)
-    }, [props.producto, arrLineaProductos, calcularStockDisponible])
+    }, [props.producto, arrLineaProductos, calcularStockDisponible, setCantidad])
     const handleCloseWarning = (reason) => {
         if (reason === 'clickaway') {
           return;
@@ -40,9 +41,7 @@ function ItemCount(props){
             else{
                 arrLineaProductos.push({producto: props.producto, cantidad: 1});
             }
-            if(props.actualizarPadre){
-                props.actualizarPadre(cantidadElegida + 1);
-            }
+            setArrLineaProductos(arrLineaProductos);
             setCantidad(cantidadElegida + 1);
             setStockDisponible(stockDisponible - 1);
             setUnidadesTotales(unidadesTotales + 1);
@@ -60,9 +59,7 @@ function ItemCount(props){
             else{
                 arrLineaProductos[indiceLinea].cantidad--;
             }
-            if(props.actualizarPadre){
-                props.actualizarPadre(cantidadElegida - 1)
-            }
+            setArrLineaProductos(arrLineaProductos);
             setCantidad(cantidadElegida - 1);
             setUnidadesTotales(unidadesTotales - 1);
             setStockDisponible(stockDisponible + 1);

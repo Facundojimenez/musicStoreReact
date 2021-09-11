@@ -1,10 +1,9 @@
-import { addDoc, collection } from "@firebase/firestore";
+import { addDoc, collection, Timestamp } from "@firebase/firestore";
 import { Button, Typography, Dialog, DialogActions, DialogContent, DialogTitle, DialogContentText, TextField, Backdrop, CircularProgress, makeStyles } from "@material-ui/core";
 import ShoppingCart from "@material-ui/icons/ShoppingCart";
 import { useContext, useState } from "react";
 import CartContext from "../context/CartContext";
 import { getDatabase } from "../firebase";
-import { Timestamp } from "@firebase/firestore";
 
 const useStyles = makeStyles({
     backdrop:{
@@ -20,7 +19,7 @@ const useStyles = makeStyles({
 function OrderFormButtom(){
     const classes = useStyles();
     const {arrLineaProductos, vaciarCarrito, calcularTotal} = useContext(CartContext);
-    const [numeroPedido, setNumeroPedido] = useState("")
+    const [numeroPedido, setNumeroPedido] = useState("");
     const [openAlerta, setOpenAlerta] = useState(false);
     const [openForm, setOpenForm] = useState(false);
     const [loading, setLoading] = useState(false);
@@ -36,7 +35,7 @@ function OrderFormButtom(){
             email: ""
         })
         setOpenForm(false);
-    }
+    };
     const handleInputChange = (event) =>{
         setBuyerData({...buyerData, [event.target.id]: event.target.value});
     };
@@ -54,7 +53,7 @@ function OrderFormButtom(){
         setNumeroPedido(orderRef.id)
         setLoading(false);
         setOpenAlerta(true);
-    }
+    };
     return (
         <>
             <Button onClick={() => setOpenForm(true)} variant="contained" color="primary" startIcon={<ShoppingCart />}>
@@ -68,32 +67,34 @@ function OrderFormButtom(){
                     <DialogContentText>
                         Para finalizar la compra, por favor ingresa tus datos. Una vez confirmada la compra, te mostraremos el número de pedido para que realices el seguimiento. Es importante que lo conserves.
                     </DialogContentText>
-                    <TextField
-                        autoFocus
-                        margin="dense"
-                        id="name"
-                        label="Nombre completo"
-                        fullWidth
-                        required
-                        onChange={handleInputChange}
+                    <form>
+                        <TextField
+                            autoFocus
+                            margin="dense"
+                            id="name"
+                            label="Nombre completo"
+                            fullWidth
+                            required
+                            onChange={handleInputChange}
+                        />
+                        <TextField
+                            margin="dense"
+                            id="email"
+                            label="Email"
+                            type="email"
+                            fullWidth
+                            required
+                            onChange={handleInputChange}
+                        />
+                        <TextField
+                            margin="dense"
+                            id="phone"
+                            label="Teléfono"
+                            fullWidth
+                            required
+                            onChange={handleInputChange}
                     />
-                    <TextField
-                        margin="dense"
-                        id="email"
-                        label="Email"
-                        type="email"
-                        fullWidth
-                        required
-                        onChange={handleInputChange}
-                    />
-                    <TextField
-                        margin="dense"
-                        id="phone"
-                        label="Teléfono"
-                        fullWidth
-                        required
-                        onChange={handleInputChange}
-                    />
+                    </form>
                 </DialogContent>
                 <DialogActions>
                     <Button onClick={handleCloseForm} color="primary">
@@ -104,11 +105,7 @@ function OrderFormButtom(){
                     </Button>
                 </DialogActions>
             </Dialog>
-            <Dialog
-                open={openAlerta}
-                aria-labelledby="alert-dialog-title"
-                aria-describedby="alert-dialog-description"
-            >
+            <Dialog open={openAlerta}>
                 <DialogTitle id="alert-dialog-title">Compra finalizada con éxito</DialogTitle>
                 <DialogContent>
                     <DialogContentText id="alert-dialog-description">

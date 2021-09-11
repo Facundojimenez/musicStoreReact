@@ -3,9 +3,11 @@ import {Grid, Box} from "@material-ui/core"
 import { useEffect, useState } from "react";
 import { getDocs,  collection, query, where} from '@firebase/firestore';
 import { getDatabase } from "../firebase";
+import LoadingScreen from "./LoadingScreen";
 
 function GridProductos(props){
     const [productos, setProductos] = useState([]);
+    const [loading, setLoading] = useState(true);
     useEffect(() => {
         const getProductos = async (idCategoria) => {
              const productosCollection = collection(getDatabase(), 'productos');
@@ -20,10 +22,13 @@ function GridProductos(props){
                  arrProductos = productosSnapshot.docs.map(doc => ({id: doc.id, ...doc.data()}));
              }
              setProductos(arrProductos);
+             setLoading(false);
         };
         getProductos(parseInt(props.idCategoria)); 
     }, [props.idCategoria]);
-
+    if(loading){
+        return <LoadingScreen mensajeCarga="Cargando productos"/>
+    }
     return (
         <Box my={2}>
             <Grid container spacing={2}>
