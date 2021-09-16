@@ -1,6 +1,6 @@
+import {Typography, Box, Container} from '@material-ui/core'
 import BannerBienvenida from "../components/BannerBienvenida";
 import BannerHomeBottom from "../components/BannerHomeBottom";
-import {Typography, Box, Container} from '@material-ui/core'
 import BannerRecomendaciones from "../components/BannerRecomendaciones";
 import GridCategorias from "../components/GridCategorias";
 import Separador from "../components/Separador";

@@ -47,7 +47,7 @@ function ContactForm(){
     const handleEnvio = async () => {
         if(!dataMensaje.email){
             setEmailInvalido(true);
-            console.log("invalido");
+            alert("Debe ingresar un mail para poder contactarse con nosotros.");
             return;
         }
         setEmailInvalido(false);
@@ -61,7 +61,6 @@ function ContactForm(){
     const handleInputChange = (evento) =>{
         setDataMensaje({...dataMensaje, [evento.target.id]: evento.target.value});
     };
-
      return (
         <>
             <Paper className={classes.formContainer}>
@@ -74,7 +73,7 @@ function ContactForm(){
                     <form>
                         <Grid container spacing={4}>
                             <Grid item xs={12} md={6}>
-                                <TextField fullWidth id="nombre" label="Nombre" variant="outlined" autoFocus onChange={handleInputChange}/>
+                                <TextField fullWidth id="nombre" label="Nombre" variant="outlined" onChange={handleInputChange}/>
                             </Grid>
                             <Grid item xs={12} md={6}>
                                 <TextField fullWidth id="apellido" label="Apellido" variant="outlined" onChange={handleInputChange}/>

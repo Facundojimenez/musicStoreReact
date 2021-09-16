@@ -1,16 +1,12 @@
+import arrBanners from '../data/dataBanners';
 import { Swiper, SwiperSlide} from 'swiper/react';
-import SwiperCore, {
-    Navigation,
-    Pagination,
-    Autoplay
-  } from 'swiper/core';
+import SwiperCore, { Navigation, Pagination, Autoplay} from 'swiper/core';
 import { Typography } from '@material-ui/core';
 
 import "swiper/swiper.min.css";
 import "swiper/components/pagination/pagination.min.css"
 import "swiper/components/navigation/navigation.min.css"
 import '../styles/bannerSlider.css';
-import arrBanners from '../data/dataBanners';
 
 SwiperCore.use([Navigation, Pagination, Autoplay]);
 

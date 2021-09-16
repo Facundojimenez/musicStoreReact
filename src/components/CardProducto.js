@@ -46,13 +46,13 @@ const useStyles = makeStyles({
 })
 
 
-function CardProducto(props){
+function Cardproducto({producto}){
     const classes = useStyles();
     return(
         <Card className={classes.card}>
-            <Link to={`/musicStoreReact/categoria/producto/${props.id}`}>
+            <Link to={`/categoria/producto/${producto.id}`}>
                 <Box className={classes.linkContainer}>
-                    <CardMedia className={classes.cardFoto} component="img" image={props.urlImagen} title={` ${props.categoria} ${props.marca} ${props.modelo}`}/>
+                    <CardMedia className={classes.cardFoto} component="img" image={producto.urlImagen} title={`${producto.categoria} ${producto.marca} ${producto.modelo}`}/>
                     <Typography variant="h5" component="h5" className={classes.overlay}>
                         Ver más detalles
                     </Typography>
@@ -61,17 +61,17 @@ function CardProducto(props){
             <CardContent className={classes.cardContent}>
                 <Box className={classes.cardBoxContent} py={1}>
                     <Typography variant="h5" component="h5">
-                        {props.marca} {props.modelo}
+                        {producto.marca} {producto.modelo}
                     </Typography>
-                    <Typography variant="body2" color="textSecondary" component="h6">
-                        {props.categoria}
+                    <Typography variant="body2" color="textSecondary" component="p">
+                        {producto.categoria}
                     </Typography>
-                    <Rating name="half-rating-read" defaultValue={props.calificacion} precision={0.5} readOnly />
+                    <Rating name="half-rating-read" defaultValue={producto.calificacion} precision={0.5} readOnly />
                 </Box>
                 <Divider variant="middle" />
                 <Box display="flex" flexDirection="column" alignItems="center" pt={1}>
-                    <Typography variant="h5" component="h6">
-                        ${props.precio}
+                    <Typography variant="h5" component="h5">
+                        ${producto.precio}
                     </Typography>
                 </Box>
             </CardContent>
@@ -79,4 +79,4 @@ function CardProducto(props){
     );
 }
 
-export default CardProducto;
+export default Cardproducto;

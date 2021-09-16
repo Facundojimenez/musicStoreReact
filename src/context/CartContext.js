@@ -26,8 +26,7 @@ export const CartProvider = ({ children }) => {
 		return suma;
 	};
 	const eliminarLineaProducto = (linea) =>{
-		arrLineaProductos.filter(lineaProducto => lineaProducto.producto.id !== linea.producto.id)
-		setArrLineaProductos(arrLineaProductos);
+		setArrLineaProductos(arrLineaProductos.filter(lineaProducto => lineaProducto.producto.id !== linea.producto.id));
 		setUnidadesTotales(unidadesTotales - linea.cantidad);
 	}
     return (

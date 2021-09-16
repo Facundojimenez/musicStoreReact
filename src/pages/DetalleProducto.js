@@ -1,18 +1,18 @@
-import { useContext, useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
 import { Box, Container, makeStyles, Grid, Typography, Hidden, Button } from "@material-ui/core";
-import Tema from "../components/tema";
+import ShoppingCart from "@material-ui/icons/ShoppingCart";
 import Separador from "../components/Separador";
 import ItemCount from "../components/ItemCount";
-import "../styles/links.css"
-import BannerRecomendaciones from "../components/BannerRecomendaciones";
 import Breadcrumbs from "../components/Breadcrumbs";
-import ShoppingCart from "@material-ui/icons/ShoppingCart";
-import { Link } from "react-router-dom";
+import LoadingScreen from "../components/LoadingScreen";
+import BannerRecomendaciones from "../components/BannerRecomendaciones";
 import CartContext from "../context/CartContext";
+import { useContext, useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import {doc, getDoc} from '@firebase/firestore'
 import { getDatabase } from "../firebase";
-import LoadingScreen from "../components/LoadingScreen";
+import "../styles/links.css"
+import Tema from "../components/tema";
 
 const useStyle = makeStyles({
     imgProducto: {
@@ -56,7 +56,7 @@ function DetalleProducto(){
     }
     return(
             <Container>
-                <Breadcrumbs urlBack="/musicStoreReact/categoria/0" texto="Volver a Productos"/>
+                <Breadcrumbs urlBack="/categoria/0" texto="Volver a Productos"/>
                 <Separador/>
                 <Box marginTop={5}>
                     <Grid container spacing={2}>
@@ -92,7 +92,7 @@ function DetalleProducto(){
                                 <Separador margenY="1rem"/>
                                 <Box display="flex" alignItems="center">
                                     <ItemCount producto={producto}/>
-                                    <Link to="/musicStoreReact/cart" className="links">
+                                    <Link to="/cart" className="links">
                                         <Button disabled={unidadesTotales === 0 ? true : false} variant="contained" color="primary" startIcon={<ShoppingCart />}>
                                             <Typography variant="h6" component="h6">
                                                 Ir al carrito

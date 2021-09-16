@@ -1,18 +1,14 @@
 import CardProducto from './CardProducto';
-import { Box } from '@material-ui/core';
+import { Box, Typography } from '@material-ui/core';
+import {getDatabase} from '../firebase';
+import {collection, getDocs} from '@firebase/firestore';
 import { useEffect, useState } from "react";
-
 import { Swiper, SwiperSlide} from 'swiper/react';
-import SwiperCore, {
-    Navigation
-  } from 'swiper/core';
+import SwiperCore, { Navigation } from 'swiper/core';
 
 import "swiper/swiper.min.css";
 import "swiper/components/navigation/navigation.min.css"
 import '../styles/bannerSlider.css';
-import Typography from '@material-ui/core/Typography'
-import {getDatabase} from '../firebase';
-import {collection, getDocs} from '@firebase/firestore';
 
 SwiperCore.use([Navigation]);
 
@@ -62,16 +58,7 @@ function BannerRecomendaciones(props){
                     productos.map(producto =>{
                         return (
                             <SwiperSlide key={producto.id} >
-                                <CardProducto
-                                    id={producto.id}
-                                    marca={producto.marca}
-                                    modelo={producto.modelo}
-                                    precio={producto.precio}
-                                    stock={producto.stock}
-                                    categoria={producto.categoria}
-                                    calificacion={producto.calificacion}
-                                    urlLink={`/musicStoreReact/categoria/producto/${producto.id}`} //El prefijo URLBASE se usar para poder dirigirse a Detalle Producto, especificandose desde dónde se viene (Home, Detalle producto, etc)
-                                    urlImagen={producto.urlImagen}/>
+                                <CardProducto producto={producto}/>
                             </SwiperSlide>
                         )
                     })

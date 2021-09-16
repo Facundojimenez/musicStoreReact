@@ -5,8 +5,6 @@ import CartWidget from './CartWidget';
 import DrawerMobile from './DrawerMobile';
 import { Link } from 'react-router-dom';
 import "../styles/links.css"
-import { useContext } from 'react';
-import CartContext from '../context/CartContext';
 
 const useStyle = makeStyles({
     espacioAppBar: Tema.mixins.toolbar,
@@ -14,37 +12,36 @@ const useStyle = makeStyles({
 
 function NavBar(){
     const classes = useStyle();
-    const {unidadesTotales} = useContext(CartContext);
     return (
         <ThemeProvider theme={Tema}>
             <AppBar position="fixed">
                 <Toolbar>
                     <DrawerMobile/>
                     <Box display="flex" flexGrow={1}>
-                        <Link to="/musicStoreReact" className="links">
+                        <Link to="/" className="links">
                             <Typography variant="h6" element="h6">
                                 Music Store
                             </Typography>
                         </Link>
                     </Box>
                     <Hidden smDown>
-                        <Link to="/musicStoreReact" className="links">
+                        <Link to="/" className="links">
                             <Button color="inherit">
                                 Home
                             </Button>
                         </Link>
-                        <Link to="/musicStoreReact/categoria/0" className="links">
+                        <Link to="/categoria/0" className="links">
                             <Button color="inherit">
                                 Productos
                             </Button>
                         </Link>
-                        <Link to="/musicStoreReact/contacto" className="links">
+                        <Link to="/contacto" className="links">
                             <Button color="inherit">
                                 Contacto
                             </Button>
                         </Link>
                     </Hidden>
-                    <Link to="/musicStoreReact/cart" className="links" style={unidadesTotales <= 0 ? {display: "none"} : {}}>
+                    <Link to="/cart" className="links">
                         <CartWidget/>
                     </Link>
                 </Toolbar>

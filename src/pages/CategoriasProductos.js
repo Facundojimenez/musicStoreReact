@@ -1,6 +1,6 @@
+import { Container, Box, Typography } from "@material-ui/core";
 import { useParams } from "react-router-dom";
 import GridProductos from "../components/GridProductos";
-import { Container, Box, Typography } from "@material-ui/core";
 
 function CategoriasProductos(){
     const {id} = useParams();

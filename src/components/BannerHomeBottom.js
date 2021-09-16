@@ -1,19 +1,14 @@
 import { makeStyles, Box, Grid, Typography } from "@material-ui/core";
-import fotoBanner from "../media/banners/bannerHomeBottom.jpg"
-import Tema from "./tema";
-import arrOpiniones from "../data/dataOpiniones";
 import FormatQuoteIcon from '@material-ui/icons/FormatQuote';
-
 import { Swiper, SwiperSlide} from 'swiper/react';
-import SwiperCore, {
-    Navigation,
-    Autoplay
-  } from 'swiper/core';
+import arrOpiniones from "../data/dataOpiniones";
+import SwiperCore, { Navigation, Autoplay} from 'swiper/core';
 
 import "swiper/swiper.min.css";
 import "swiper/components/pagination/pagination.min.css"
 import "swiper/components/navigation/navigation.min.css"
 import '../styles/bannerSlider.css';
+import Tema from "./tema";
 
 
 SwiperCore.use([Navigation, Autoplay]);
@@ -23,7 +18,7 @@ const useStyles = makeStyles({
         minHeight: "20vh",
         padding: "3rem",
         color: Tema.palette.primary.contrastText,
-        backgroundImage: `url(${fotoBanner})`,
+        backgroundImage: `url("https://firebasestorage.googleapis.com/v0/b/musicstorereact.appspot.com/o/bannerHomeBottom.jpg?alt=media&token=ee6428b1-72ab-4d0d-b670-309c222294b9")`,
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundAttachment: "fixed",

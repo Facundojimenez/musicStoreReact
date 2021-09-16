@@ -1,10 +1,10 @@
 import { SwipeableDrawer, IconButton, List, ListItem, ListItemIcon, ListItemText, Hidden } from "@material-ui/core";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import MenuIcon from '@material-ui/icons/Menu';
 import StoreIcon from '@material-ui/icons/Store';
 import LocalMallIcon from '@material-ui/icons/LocalMall';
 import ContactMailIcon from '@material-ui/icons/ContactMail';
-import { Link } from "react-router-dom";
 import "../styles/links.css"
 
 function DrawerMobile(){
@@ -23,7 +23,7 @@ function DrawerMobile(){
                 onOpen={() => setOpen(true)}
             >
                 <List component="nav" aria-label="Home Productos Contacto">
-                    <Link to="/musicStoreReact" className="links">
+                    <Link to="/" className="links">
                         <ListItem button>
                             <ListItemIcon>
                                 <StoreIcon/>
@@ -31,7 +31,7 @@ function DrawerMobile(){
                             <ListItemText primary="Home" />
                         </ListItem>
                     </Link>
-                    <Link to="/musicStoreReact/categoria/0" className="links">
+                    <Link to="/categoria/0" className="links">
                         <ListItem button>
                             <ListItemIcon>
                                 <LocalMallIcon/>
@@ -39,7 +39,7 @@ function DrawerMobile(){
                             <ListItemText primary="Productos" />
                         </ListItem>
                     </Link>
-                    <Link  to="/musicStoreReact/contacto" className="links">
+                    <Link  to="/contacto" className="links">
                         <ListItem button>
                             <ListItemIcon>
                                 <ContactMailIcon/>

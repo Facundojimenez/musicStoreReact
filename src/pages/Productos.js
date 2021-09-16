@@ -1,5 +1,5 @@
-import GridProductos from '../components/GridProductos';
 import { Container, Box, Typography } from '@material-ui/core';
+import GridProductos from '../components/GridProductos';
 
 function Productos(){
     return(

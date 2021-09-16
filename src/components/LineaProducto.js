@@ -1,8 +1,9 @@
 import { makeStyles, Typography, IconButton, Grid } from "@material-ui/core";
-import ItemCount from "./ItemCount";
 import { useContext } from "react";
+import ItemCount from "./ItemCount";
 import CartContext from "../context/CartContext";
 import ClearIcon from '@material-ui/icons/Clear';
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles({
     lineaContainer:{
@@ -29,13 +30,15 @@ function LineaProducto({linea}){
     return (
         <Grid container  className={classes.lineaContainer} alignItems="center">
             <Grid item xs={6} md={3}>
-                <img className={classes.lineaImg} src={linea.producto.urlImagen} alt={`${linea.producto.marca} ${linea.producto.modelo}`}/>
+                <Link to={`/categoria/producto/${linea.producto.id}`}>
+                    <img className={classes.lineaImg} src={linea.producto.urlImagen} alt={`${linea.producto.marca} ${linea.producto.modelo}`}/>
+                </Link>
             </Grid>
             <Grid item xs={6} md={3}>
-                <Typography variant="h5" color="initial">
+                <Typography variant="h5" component="h5" color="initial">
                     {linea.producto.marca} {linea.producto.modelo}
                 </Typography>
-                <Typography variant="h6" color="textSecondary">
+                <Typography variant="h6" component="h6" color="textSecondary">
                     x{linea.cantidad} unidades
                 </Typography>
             </Grid>
@@ -43,7 +46,7 @@ function LineaProducto({linea}){
                 <ItemCount producto={linea.producto}/>
             </Grid>
             <Grid item xs={6} md={3}>
-                <Typography variant="h5" color="primary" align="center">
+                <Typography variant="h5" component="h5" color="primary" align="center">
                     ${linea.producto.precio * linea.cantidad}
                 </Typography>
             </Grid>

@@ -1,9 +1,9 @@
 import { Grid, makeStyles, Typography, Box } from "@material-ui/core";
 import { Link } from "react-router-dom";
-import "../styles/links.css"
 import Tema from "./tema";
 import imgGuitarras from "../media/categoriasThumbnails/categoriaGuitarras.jpg"
 import imgAmplificadores from "../media/categoriasThumbnails/categoriaAmplificadores.jpg"
+import "../styles/links.css"
 
 const useStyles = makeStyles({
     categoriaContainer:{
@@ -33,9 +33,9 @@ function GridCategorias(){
         <>
             <Grid container spacing={2}>
                 <Grid item xs={12} sm={6}>
-                    <Link to="/musicStoreReact/categoria/1" className={`links ${classes.categoriaContainer}`}>
+                    <Link to="/categoria/1" className={`links ${classes.categoriaContainer}`}>
                         <Box className={classes.imgContainer}>
-                            <img className={classes.categoriaImg} alt="strat" src={imgGuitarras}/>
+                            <img className={classes.categoriaImg} alt="categoria guitarras" src={imgGuitarras}/>
                         </Box>
                         <Typography variant="h4" color="initial">
                             Guitarras
@@ -46,9 +46,9 @@ function GridCategorias(){
                     </Link>
                 </Grid>
                 <Grid item xs={12} sm={6}>
-                    <Link to="/musicStoreReact/categoria/2" className={`links ${classes.categoriaContainer}`}>
+                    <Link to="/categoria/2" className={`links ${classes.categoriaContainer}`}>
                         <Box className={classes.imgContainer}>
-                            <img className={classes.categoriaImg} alt="ac30" src={imgAmplificadores}/>
+                            <img className={classes.categoriaImg} alt="categoria amplificadores" src={imgAmplificadores}/>
                         </Box>
                         <Typography variant="h4" color="initial">
                             Amplificadores
