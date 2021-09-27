@@ -10,7 +10,7 @@ La aplicación fue creada con **React**, manejando la estética con la librería
 
 # Demo
 
-![alt text](https://firebasestorage.googleapis.com/v0/b/musicstorereact.appspot.com/o/2021-09-27%2011-51-49.gif?alt=media&token=d544eb79-cd11-4830-ab81-b1bb4ac8768a)
+![alt text](https://firebasestorage.googleapis.com/v0/b/musicstorereact.appspot.com/o/2021-09-27%2011-51-49.gif?alt=media&token=b417c3cb-77e5-466d-a77d-ff522925d568)
 
 # Secciones de la página:
 
