@@ -13,17 +13,22 @@ const useStyles = makeStyles({
         alignItems: "center",
         backgroundColor: Tema.palette.common.white,
         minHeight: "450px",
-        boxShadow: "1px 1px 6px rgba(0,0,0,0.25)"
+        boxShadow: "1px 1px 3px rgba(0,0,0,0.25)"
     },
     imgContainer:{
         flexGrow: 1,
         display: "flex",
         alignItems: "center",
-        maxWidth: "700px"
+        maxWidth: "700px",
+        overflow: "hidden"
     },
     categoriaImg:{
         minWidth: "200px",
-        maxWidth: "100%"
+        maxWidth: "100%",
+        '&:hover': {
+            transform: "scale(1.1)"
+        },
+        transition: "500ms"
     }
 })
 

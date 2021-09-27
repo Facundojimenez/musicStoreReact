@@ -15,7 +15,6 @@ const useStyle = makeStyles({
 })
 
 function ItemCount({producto}){
-    console.log(producto)
     const classes = useStyle();
     const { calcularStockDisponible, arrLineaProductos, unidadesTotales, setUnidadesTotales, setArrLineaProductos } = useContext(CartContext);
     const [cantidadElegida, setCantidadElegida] = useLocalStorage("cantidadElegida", 0);

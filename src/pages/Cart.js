@@ -8,7 +8,7 @@ import Tema from "../components/tema";
 import "../styles/links.css"
 
 const useStyles = makeStyles({
-    carritoVacioContainer:{
+    carritoContainer:{
         minHeight: "80vh",
         display: "flex",
         flexDirection: "column",
@@ -31,7 +31,7 @@ function Cart(){
     const {arrLineaProductos, calcularTotal, unidadesTotales} = useContext(CartContext);
     if(arrLineaProductos.length > 0){
         return (
-            <Container maxWidth="md">
+            <Container className={classes.carritoContainer} maxWidth="md">
                 <Box my={2}>
                     <Typography align="center" variant="h2" component="h2">
                         Carrito
@@ -63,7 +63,7 @@ function Cart(){
     }
     else{
         return (
-            <Container className={classes.carritoVacioContainer} maxWidth="md">
+            <Container className={classes.carritoContainer} maxWidth="md">
                 <Box>
                     <Typography align="center" variant="h2" component="h2">
                         No hay productos en el carrito

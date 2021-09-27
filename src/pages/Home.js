@@ -12,7 +12,7 @@ function Homepage(){
             <Container>
                 <Box my={5}>
                     <Typography variant="h3" component="h3" color="initial" align="center">
-                        Homepage
+                        Descubrí nuestros productos
                     </Typography>
                 </Box>
                 <GridCategorias/>

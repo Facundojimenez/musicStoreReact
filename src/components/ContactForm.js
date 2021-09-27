@@ -1,9 +1,8 @@
 import { Box, Grid, TextField, Button, Typography, makeStyles, Paper, Backdrop, CircularProgress,Dialog, DialogActions, DialogContent, DialogTitle, DialogContentText } from "@material-ui/core";
 import SendIcon from '@material-ui/icons/Send';
 import Tema from "./tema";
-import { addDoc, collection, Timestamp } from "@firebase/firestore";
-import { getDatabase } from "../firebase";
 import { useState } from "react";
+import emailjs from 'emailjs-com'
 
 const useStyles = makeStyles({
     formContainer:{
@@ -44,7 +43,7 @@ function ContactForm(){
         mensaje: "",
         date: "",
     });
-    const handleEnvio = async () => {
+    const handleEnvio = async (e) => {
         if(!dataMensaje.email){
             setEmailInvalido(true);
             alert("Debe ingresar un mail para poder contactarse con nosotros.");
@@ -52,11 +51,14 @@ function ContactForm(){
         }
         setEmailInvalido(false);
         setLoading(true);
-        setDataMensaje({...dataMensaje, "date": Timestamp.fromDate(new Date())})
-        const mensajesCollection = collection(getDatabase(), "mensajes");
-        await addDoc(mensajesCollection, dataMensaje);
+        const response = await emailjs.send('service_dmffzad', 'template_gqc7g2w', dataMensaje, 'user_bX6HwwY8Hx0muhKq3RVdJ')
+        if(response.status !== 200){
+            alert("No se pudo enviar el mensaje, intentelo nuevamente...");
+        }
+        else{
+            setSuccess(true);
+        }
         setLoading(false);
-        setSuccess(true);
     };
     const handleInputChange = (evento) =>{
         setDataMensaje({...dataMensaje, [evento.target.id]: evento.target.value});
@@ -67,7 +69,7 @@ function ContactForm(){
                 <Box className={classes.formInnerContainer}>
                     <Box mb={3}>
                         <Typography variant="h4" element="h4" color="primary">
-                            ¡Contactanos!
+                            ¡Contactame!
                         </Typography>
                     </Box>
                     <form>
@@ -87,7 +89,7 @@ function ContactForm(){
                         </Grid>
                         <Box textAlign="center">
                             <Button className={classes.botonEnviar} size="large" variant="contained" color="primary" endIcon={<SendIcon/>} onClick={handleEnvio}>
-                                Send
+                                Enviar
                             </Button>
                         </Box>
                     </form>
@@ -100,7 +102,7 @@ function ContactForm(){
                 <DialogTitle id="alert-dialog-title">Mensaje enviado con éxito</DialogTitle>
                 <DialogContent>
                     <DialogContentText id="alert-dialog-description">
-                        Nos contactaremos con vos a la brevedad. 
+                        Muchas gracias por contactarnos, te responderemos a la brevedad.
                     </DialogContentText>
                 </DialogContent>
                 <DialogActions>

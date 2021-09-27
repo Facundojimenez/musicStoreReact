@@ -28,7 +28,7 @@ function LineaProducto({linea}){
     const {eliminarLineaProducto} = useContext(CartContext);
     const classes = useStyles();
     return (
-        <Grid container  className={classes.lineaContainer} alignItems="center">
+        <Grid container className={classes.lineaContainer} alignItems="center">
             <Grid item xs={6} md={3}>
                 <Link to={`/categoria/producto/${linea.producto.id}`}>
                     <img className={classes.lineaImg} src={linea.producto.urlImagen} alt={`${linea.producto.marca} ${linea.producto.modelo}`}/>
